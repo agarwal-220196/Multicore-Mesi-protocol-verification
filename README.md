@@ -1,6 +1,6 @@
 # csce_689_final_project_1
 FINAL project
 
-New branch: Sanket 
+New branch: Master 
 
-Trying to merge with master
+Merge Successfull
