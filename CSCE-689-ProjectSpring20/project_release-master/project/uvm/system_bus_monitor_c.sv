@@ -27,6 +27,32 @@ class system_bus_monitor_c extends uvm_monitor;
             option.auto_bin_max = 20;
         }
         //TODO: Add coverage for other fields of sbus_mon_packet
+		
+		
+		WRITE_DATA_SNOOP: coverpoint s_packet.wr_data_snoop{
+            option.auto_bin_max = 20;
+        }
+		
+		BUS_REQUEST_SNOOP: coverpoint  s_packet.bus_req_snoop;
+		SNOOP_WRITE_REQUEST_FLAG: coverpoint s_packet.snoop_wr_req_flag;
+		
+		// checking all the level 2 accesses 
+		REQUEST_SERVICED_BY: coverpoint  s_packet.req_serviced_by{
+           ignore_bins ignore_req_serviced_by = {SERV_SNOOP0, SERV_SNOOP1, SERV_SNOOP2, SERV_SNOOP3};
+	}
+
+		COPY_IN_CACHE: coverpoint s_packet.cp_in_cache;
+		SHARED: coverpoint s_packet.shared;
+		
+		
+		PROC_EVICT_DIRTY_BLK_ADDR: coverpoint s_packet.proc_evict_dirty_blk_addr{
+           option.auto_bin_max = 20;
+        }
+        PROC_EVICT_DIRTY_BLK_DATA: coverpoint s_packet.proc_evict_dirty_blk_data{
+           option.auto_bin_max = 20;
+        }
+        PROC_EVICT_DIRTY_BLK_FLAG: coverpoint s_packet.proc_evict_dirty_blk_flag;
+
 
         //cross coverage
         //ensure each processor has read miss, write miss, invalidate, etc.
@@ -34,6 +60,14 @@ class system_bus_monitor_c extends uvm_monitor;
         X_PROC__ADDRESS: cross REQUEST_PROCESSOR, REQUEST_ADDRESS;
         X_PROC__DATA: cross REQUEST_PROCESSOR, READ_DATA;
         //TODO: Add relevant cross coverage (examples shown above)
+		// request number and write data 
+		X_PROC__WR_DATA: cross REQUEST_PROCESSOR, WRITE_DATA_SNOOP;
+        
+		//requested number and snoop
+		X_PROC__SNOOP: cross REQUEST_PROCESSOR, BUS_REQUEST_SNOOP;
+		
+		//request and serviced by cross
+		X_PROC__SERVICED_BY: cross REQUEST_PROCESSOR, REQUEST_SERVICED_BY;
     endgroup
 
     // Virtual interface of used to observe system bus interface signals
