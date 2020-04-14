@@ -19,6 +19,16 @@ class cpu_monitor_c extends uvm_monitor;
         option.name = "cover_cpu_packets";
         REQUEST: coverpoint packet.request_type;
         //TODO: add coverpoints for Data, Address, etc.
+		DATA: coverpoint packet.dat{
+			option.auto_bin_max=20;
+		}
+		ADDRESS:coverpoint packet.address {
+			option.auto_bin_max=20;
+		}
+		ADDRESS_TYPE: coverpoint packet.addr_type;
+		ILLEGAL_CHECK: coverpoint packet.illegal;
+		NUMBER_OF_CYCLES: coverpoint packet.num_cycles;
+		
     endgroup
 
     //constructor
@@ -44,6 +54,9 @@ class cpu_monitor_c extends uvm_monitor;
             //Add code to populate other fields of the cpu monitor packet
             //Ensure that your code can handle all possible cases (read, write
             //etc)
+			
+			//Dhiraj comments: adding adress_type, illegal, number of cycles to ensure proper operation
+			
             @(posedge vi_cpu_lv1_if.cpu_rd or posedge vi_cpu_lv1_if.cpu_wr)
             packet = cpu_mon_packet_c::type_id::create("packet", this);
             if(vi_cpu_lv1_if.cpu_rd === 1'b1) begin
