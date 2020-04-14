@@ -40,17 +40,17 @@ class sbus_packet_c extends uvm_sequence_item;
         //TODO: enable comparison of all the fields once you have developed
         //meaningful constraints, added necessary code within the drivers,
         //monitors and interface assertions
-        `uvm_field_enum(bus_req_t, bus_req_type, UVM_NOCOMPARE)
+        `uvm_field_enum(bus_req_t, bus_req_type, UVM_ALL_ON)
         `uvm_field_enum(bus_req_proc_t, bus_req_proc_num, UVM_ALL_ON)
         `uvm_field_int(req_address, UVM_ALL_ON)
-        `uvm_field_int(bus_req_snoop, UVM_NOCOMPARE)
-        `uvm_field_enum(serv_by_t, req_serviced_by, UVM_NOCOMPARE)
+        `uvm_field_int(bus_req_snoop, UVM_ALL_ON)
+        `uvm_field_enum(serv_by_t, req_serviced_by, UVM_ALL_ON)
         `uvm_field_int(rd_data, UVM_ALL_ON)
         `uvm_field_int(wr_data_snoop, UVM_ALL_ON)
         `uvm_field_int(snoop_wr_req_flag, UVM_ALL_ON)
         `uvm_field_int(cp_in_cache, UVM_ALL_ON)
         `uvm_field_int(shared, UVM_ALL_ON)
-        `uvm_field_int(service_time, UVM_NOCOMPARE)
+        `uvm_field_int(service_time, UVM_ALL_ON)
         `uvm_field_int(proc_evict_dirty_blk_addr, UVM_ALL_ON)
         `uvm_field_int(proc_evict_dirty_blk_data, UVM_ALL_ON)
         `uvm_field_int(proc_evict_dirty_blk_flag, UVM_ALL_ON)
