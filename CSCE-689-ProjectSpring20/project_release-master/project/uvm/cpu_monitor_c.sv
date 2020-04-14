@@ -20,7 +20,6 @@ class cpu_monitor_c extends uvm_monitor;
         REQUEST: coverpoint packet.request_type;
         //TODO: add coverpoints for Data, Address, etc.
 		DATA: coverpoint packet.dat{
-<<<<<<< HEAD
                 option.auto_bin_max = 20;
         }
         ADDRESS: coverpoint packet.address{
@@ -34,16 +33,6 @@ class cpu_monitor_c extends uvm_monitor;
         X_TYPE__ADDR: cross REQUEST, ADDRESS;
         X_TYPE__ADDRTYPE: cross REQUEST, ADDRESS_TYPE{
 		ignore_bins ignore_icache_write = binsof(REQUEST) intersect {WRITE_REQ} && binsof(ADDRESS_TYPE) intersect {ICACHE};}
-=======
-			option.auto_bin_max=20;
-		}
-		ADDRESS:coverpoint packet.address {
-			option.auto_bin_max=20;
-		}
-		ADDRESS_TYPE: coverpoint packet.addr_type;
-		ILLEGAL_CHECK: coverpoint packet.illegal;
-		NUMBER_OF_CYCLES: coverpoint packet.num_cycles;
->>>>>>> 6f372c57068a5a52383fc2be92da71e3f0a25e42
 		
     endgroup
 

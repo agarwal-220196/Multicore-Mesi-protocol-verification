@@ -26,9 +26,7 @@ class system_bus_monitor_c extends uvm_monitor;
         READ_DATA: coverpoint s_packet.rd_data{
             option.auto_bin_max = 20;
         }
-        //TODO: Add coverage for other fields of sbus_mon_packet
-<<<<<<< HEAD
-		
+        //TODO: Add coverage for other fields of sbus_mon_packet		
 		
 		WRITE_DATA_SNOOP: coverpoint s_packet.wr_data_snoop{
             option.auto_bin_max = 20;
@@ -55,34 +53,14 @@ class system_bus_monitor_c extends uvm_monitor;
         PROC_EVICT_DIRTY_BLK_FLAG: coverpoint s_packet.proc_evict_dirty_blk_flag;
 
 
-=======
-		REQUEST_SNOOP : coverpoint s_packet.bus_req_snoop;
-		REQUEST_SERVICED_BY: coverpoint s_packet.req_serviced_by;
-		WRITE_DATA_SNOOP: coverpoint s_packet.wr_data_snoop{
-            option.auto_bin_max = 20;
-        }
-		SNOOP_WRITE_REQ_FLAG: coverpoint s_packet.snoop_wr_req_flag;
-		COPY_IN_CACHE: coverpoint s_packet.cp_in_cache;
-		SHARED: coverpoint s_packet.shared;
-		SERVICE_TIME: coverpoint s_packet.service_time {
-		option.auto_bin_max = 20;
-        }
-		PROC_EVICT_DIRTY_BLOCK_ADDRESS: coverpoint s_packet.proc_evict_dirty_blk_addr{
-		option.auto_bin_max = 20;
-        }
-		PROC_EVICT_DIRTY_BLOCK_DATA: coverpoint s_packet.proc_evict_dirty_blk_data{
-		option.auto_bin_max = 20;
-        }
-		PROC_EVICT_DIRTY_BLOCK_FLAG: coverpoint s_packet.proc_evict_dirty_blk_flag;
-		
->>>>>>> 6f372c57068a5a52383fc2be92da71e3f0a25e42
+
         //cross coverage
         //ensure each processor has read miss, write miss, invalidate, etc.
         X_PROC__REQ_TYPE: cross REQUEST_TYPE, REQUEST_PROCESSOR;
         X_PROC__ADDRESS: cross REQUEST_PROCESSOR, REQUEST_ADDRESS;
         X_PROC__DATA: cross REQUEST_PROCESSOR, READ_DATA;
         //TODO: Add relevant cross coverage (examples shown above)
-<<<<<<< HEAD
+
 		// request number and write data 
 		X_PROC__WR_DATA: cross REQUEST_PROCESSOR, WRITE_DATA_SNOOP;
         
@@ -91,14 +69,7 @@ class system_bus_monitor_c extends uvm_monitor;
 		
 		//request and serviced by cross
 		X_PROC__SERVICED_BY: cross REQUEST_PROCESSOR, REQUEST_SERVICED_BY;
-=======
-		X_PROC__SNOOP: cross REQUEST_PROCESSOR, REQUEST_SNOOP;
-		X_PROC__SNOOP_REQUEST_SERVICED: cross REQUEST_PROCESSOR, REQUEST_SERVICED_BY;
-		X_REQUEST_SNOOP__REQUEST_SERVICED: cross REQUEST_SNOOP, REQUEST_SERVICED_BY;
-		X_PROC__WRITE_DATA: cross REQUEST_PROCESSOR,WRITE_DATA_SNOOP;
-		
-		
->>>>>>> 6f372c57068a5a52383fc2be92da71e3f0a25e42
+
     endgroup
 
     // Virtual interface of used to observe system bus interface signals
