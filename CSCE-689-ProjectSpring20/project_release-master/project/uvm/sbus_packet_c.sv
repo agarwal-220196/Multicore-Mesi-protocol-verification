@@ -50,7 +50,7 @@ class sbus_packet_c extends uvm_sequence_item;
         `uvm_field_int(snoop_wr_req_flag, UVM_ALL_ON)
         `uvm_field_int(cp_in_cache, UVM_ALL_ON)
         `uvm_field_int(shared, UVM_ALL_ON)
-        `uvm_field_int(service_time, UVM_NOCOMPARE)
+        `uvm_field_int(service_time, UVM_ALL_ON)
         `uvm_field_int(proc_evict_dirty_blk_addr, UVM_ALL_ON)
         `uvm_field_int(proc_evict_dirty_blk_data, UVM_ALL_ON)
         `uvm_field_int(proc_evict_dirty_blk_flag, UVM_ALL_ON)

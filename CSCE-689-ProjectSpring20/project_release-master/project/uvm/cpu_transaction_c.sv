@@ -64,6 +64,10 @@ class cpu_transaction_c extends uvm_sequence_item;
     }
 
 //TODO: Add meaningful constraints
-
+	constraint write_req_not_on_icache{
+		solve request_type before access_cache_type;
+		if(request_type == WRITE_REQ)
+			access_cache_type == DCACHE_ACC;
+			}
 endclass : cpu_transaction_c
 
