@@ -89,8 +89,8 @@ interface cpu_lv1_interface(input clk);
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion checking_sequence_type_1 Failed: data_in_bus_cpu_lv1 and cpu_rd sequence"))
 
 
-//ASSERTION 7: cpu_wr_done should follow cpu_wr
 
+//ASSERTION 7: cpu_wr_done should follow cpu_wr
 	property checking_sequence_type_3;
 		@(posedge clk iff cpu_wr)
 			$fell(cpu_wr)|=>$fell(cpu_wr_done);
@@ -100,7 +100,6 @@ interface cpu_lv1_interface(input clk);
 		`uvm_error("cpu_lv1_interface",$sformatf("Assertion checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other "))
 		
 //ASSERTION 8: checking validity of address while reading.
-
 	property address_validity_cpu_rd;
 		@(posedge clk)
 			cpu_rd |-> (addr_bus_cpu_lv1 !== 32'hz);

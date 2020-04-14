@@ -1,5 +1,5 @@
 irun: 15.20-s022: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	irun	15.20-s022: Started on Apr 13, 2020 at 23:28:11 CDT
+TOOL:	irun	15.20-s022: Started on Apr 14, 2020 at 02:52:19 CDT
 irun
 	-f sim_cmd_line.f
 		+access+rwc
@@ -10,83 +10,10 @@ irun
 		-covfile ./cov_conf.ccf
 		-uvmhome /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv
 		+UVM_VERBOSITY=UVM_LOW
-	+UVM_TESTNAME=read_miss_icache
 
    User defined plus("+") options:
 	+UVM_VERBOSITY=UVM_LOW
 
-SOFTINCLUDE $SYSTEM_CDS_LIB_DIR/cds.lib
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,1): cds.lib Invalid environment variable ''.
-DEFINE      basic                   $CDK_DIR/lib/basic
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,2): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_Analog_Parts 	    $CDK_DIR/lib/NCSU_Analog_Parts
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,3): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_Digital_Parts 	    $CDK_DIR/lib/NCSU_Digital_Parts
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,4): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_ami06      $CDK_DIR/lib/NCSU_TechLib_ami06
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,6): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_ami16      $CDK_DIR/lib/NCSU_TechLib_ami16
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,7): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_hp06       $CDK_DIR/lib/NCSU_TechLib_hp06
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,8): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc02     $CDK_DIR/lib/NCSU_TechLib_tsmc02
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,9): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc02d    $CDK_DIR/lib/NCSU_TechLib_tsmc02d
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,10): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc03     $CDK_DIR/lib/NCSU_TechLib_tsmc03
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,11): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc03d    $CDK_DIR/lib/NCSU_TechLib_tsmc03d
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,12): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc04_4M2P    $CDK_DIR/lib/NCSU_TechLib_tsmc04_4M2P
-|
-irun: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,13): cds.lib Invalid environment variable ''.
-SOFTINCLUDE $SYSTEM_CDS_LIB_DIR/cds.lib
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,1): cds.lib Invalid environment variable ''.
-DEFINE      basic                   $CDK_DIR/lib/basic
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,2): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_Analog_Parts 	    $CDK_DIR/lib/NCSU_Analog_Parts
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,3): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_Digital_Parts 	    $CDK_DIR/lib/NCSU_Digital_Parts
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,4): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_ami06      $CDK_DIR/lib/NCSU_TechLib_ami06
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,6): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_ami16      $CDK_DIR/lib/NCSU_TechLib_ami16
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,7): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_hp06       $CDK_DIR/lib/NCSU_TechLib_hp06
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,8): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc02     $CDK_DIR/lib/NCSU_TechLib_tsmc02
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,9): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc02d    $CDK_DIR/lib/NCSU_TechLib_tsmc02d
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,10): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc03     $CDK_DIR/lib/NCSU_TechLib_tsmc03
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,11): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc03d    $CDK_DIR/lib/NCSU_TechLib_tsmc03d
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,12): cds.lib Invalid environment variable ''.
-DEFINE      NCSU_TechLib_tsmc04_4M2P    $CDK_DIR/lib/NCSU_TechLib_tsmc04_4M2P
-|
-ncsim: *W,DLCVAR (/home/grads/d/dhirajkudva/cds.lib,13): cds.lib Invalid environment variable ''.
 Loading snapshot worklib.top:sv .................... Done
 SVSEED default: 1
 ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
@@ -114,178 +41,7 @@ CDNS-UVM-1.1d (15.20-s022)
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
 UVM_INFO ../uvm/top.sv(141) @ 0: reporter [TOP] Starting UVM test
-UVM_INFO @ 0: reporter [RNTST] Running test read_miss_icache...
-UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
----------------------------------------------------------------------
-Name                        Type                     Size  Value     
----------------------------------------------------------------------
-uvm_test_top                read_miss_icache         -     @2766     
-  tb                        env                      -     @2876     
-    cpu[0]                  cpu_agent_c              -     @2914     
-      driver                cpu_driver_c             -     @4724     
-        rsp_port            uvm_analysis_port        -     @4875     
-          recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @4826     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @4005     
-        mon_out             uvm_analysis_port        -     @4107     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @4139     
-        rsp_export          uvm_analysis_export      -     @4195     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @4745     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-        arbitration_queue   array                    0     -         
-        lock_queue          array                    0     -         
-        num_last_reqs       integral                 32    'd1       
-        num_last_rsps       integral                 32    'd1       
-      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
-      recording_detail      integral                 32    'd1       
-    cpu[1]                  cpu_agent_c              -     @2912     
-      driver                cpu_driver_c             -     @5585     
-        rsp_port            uvm_analysis_port        -     @5730     
-          recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @5682     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @4931     
-        mon_out             uvm_analysis_port        -     @4979     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @5009     
-        rsp_export          uvm_analysis_export      -     @5065     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @5605     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-        arbitration_queue   array                    0     -         
-        lock_queue          array                    0     -         
-        num_last_reqs       integral                 32    'd1       
-        num_last_rsps       integral                 32    'd1       
-      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
-      recording_detail      integral                 32    'd1       
-    cpu[2]                  cpu_agent_c              -     @2944     
-      driver                cpu_driver_c             -     @6433     
-        rsp_port            uvm_analysis_port        -     @6578     
-          recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @6530     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @5779     
-        mon_out             uvm_analysis_port        -     @5827     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @5857     
-        rsp_export          uvm_analysis_export      -     @5913     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @6453     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-        arbitration_queue   array                    0     -         
-        lock_queue          array                    0     -         
-        num_last_reqs       integral                 32    'd1       
-        num_last_rsps       integral                 32    'd1       
-      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
-      recording_detail      integral                 32    'd1       
-    cpu[3]                  cpu_agent_c              -     @2974     
-      driver                cpu_driver_c             -     @7281     
-        rsp_port            uvm_analysis_port        -     @7426     
-          recording_detail  integral                 32    'd1       
-        seq_item_port       uvm_seq_item_pull_port   -     @7378     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      monitor               cpu_monitor_c            -     @6627     
-        mon_out             uvm_analysis_port        -     @6675     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-      sequencer             cpu_sequencer_c          -     @6705     
-        rsp_export          uvm_analysis_export      -     @6761     
-          recording_detail  integral                 32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp    -     @7301     
-          recording_detail  integral                 32    'd1       
-        recording_detail    integral                 32    'd1       
-        arbitration_queue   array                    0     -         
-        lock_queue          array                    0     -         
-        num_last_reqs       integral                 32    'd1       
-        num_last_rsps       integral                 32    'd1       
-      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
-      recording_detail      integral                 32    'd1       
-    sb                      cache_scoreboard_c       -     @3706     
-      sb_cpu0m              uvm_analysis_imp_cpu0m   -     @3823     
-        recording_detail    integral                 32    'd1       
-      sb_cpu1m              uvm_analysis_imp_cpu1m   -     @3874     
-        recording_detail    integral                 32    'd1       
-      sb_cpu2m              uvm_analysis_imp_cpu2m   -     @3923     
-        recording_detail    integral                 32    'd1       
-      sb_cpu3m              uvm_analysis_imp_cpu3m   -     @3972     
-        recording_detail    integral                 32    'd1       
-      sb_sbus               uvm_analysis_imp_sbus    -     @4021     
-        recording_detail    integral                 32    'd1       
-      recording_detail      integral                 32    'd1       
-    sbus_monitor            system_bus_monitor_c     -     @3622     
-      sbus_out              uvm_analysis_port        -     @3724     
-        recording_detail    integral                 32    'd1       
-      recording_detail      integral                 32    'd1       
-    vsequencer              virtual_sequencer_c      -     @3004     
-      rsp_export            uvm_analysis_export      -     @3093     
-        recording_detail    integral                 32    'd1       
-      seq_item_export       uvm_seq_item_pull_imp    -     @3643     
-        recording_detail    integral                 32    'd1       
-      recording_detail      integral                 32    'd1       
-      arbitration_queue     array                    0     -         
-      lock_queue            array                    0     -         
-      num_last_reqs         integral                 32    'd1       
-      num_last_rsps         integral                 32    'd1       
-    recording_detail        integral                 32    'd1       
----------------------------------------------------------------------
-
-UVM_INFO ../test/read_miss_icache.sv(26) @ 0: uvm_test_top [read_miss_icache] Executing read_miss_icache test
-SDI/Verilog Transaction Recording Facility Version 15.20-s022
-UVM_INFO ../uvm/system_bus_monitor_c.sv(83) @ 0: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] RUN Phase
-UVM_INFO ../uvm/cache_scoreboard_c.sv(66) @ 0: uvm_test_top.tb.sb [cache_scoreboard_c] RUN Phase
-UVM_INFO ../uvm/cpu_monitor_c.sv(51) @ 0: uvm_test_top.tb.cpu[3].monitor [cpu_monitor_c] RUN Phase
-UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/cpu_monitor_c.sv(51) @ 0: uvm_test_top.tb.cpu[2].monitor [cpu_monitor_c] RUN Phase
-UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/cpu_monitor_c.sv(51) @ 0: uvm_test_top.tb.cpu[1].monitor [cpu_monitor_c] RUN Phase
-UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/cpu_monitor_c.sv(51) @ 0: uvm_test_top.tb.cpu[0].monitor [cpu_monitor_c] RUN Phase
-UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@read_miss_icache_seq [read_miss_icache_seq] raise_objection
-UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@read_miss_icache_seq [read_miss_icache_seq] Main Processor=1	SP1=0	SP2=3
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
--------------------------------------------------------------------------------------------------------
-Name                           Type               Size  Value                                          
--------------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7904                                          
-  data                         integral           32    'h5555aaaa                                     
-  address                      integral           32    'h30427cfc                                     
-  request_type                 request_t          1     READ_REQ                                       
-  access_cache_type            access_cache_t     1     ICACHE_ACC                                     
-  begin_time                   time               64    0                                              
-  depth                        int                32    'd2                                            
-  parent sequence (name)       string             20    read_miss_icache_seq                           
-  parent sequence (full name)  string             47    uvm_test_top.tb.vsequencer.read_miss_icache_seq
-  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer               
--------------------------------------------------------------------------------------------------------
-
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 1215: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/virtual_seqs.sv(38) @ 1215: uvm_test_top.tb.vsequencer@@read_miss_icache_seq [read_miss_icache_seq] drop_objection
-UVM_INFO /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 1215: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
----Test Summary---
-
----Final Test Status---
-
-Test PASS
- ____   _    ____ ____
-|  _ \ / \  / ___/ ___|
-| |_) / _ \ \___ \___ \
-|  __/ ___ \ ___) |__) |
-|_| /_/   \_\____/____/
-
+UVM_FATAL @ 0: reporter [NOCOMP] No components instantiated. You must either instantiate at least one component before calling run_test or use run_test to do so. To run a test using run_test, use +UVM_TESTNAME or supply the test name in the argument to run_test(). Exiting simulation.
 
 --- UVM Report catcher Summary ---
 
@@ -300,23 +56,15 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   20
+UVM_INFO :    1
 UVM_WARNING :    0
 UVM_ERROR :    0
-UVM_FATAL :    0
+UVM_FATAL :    1
 ** Report counts by id
-[RNTST]     1
-[TEST_DONE]     1
+[NOCOMP]     1
 [TOP]     1
-[UVMTOP]     1
-[cache_scoreboard_c]     1
-[cpu_driver_c]     6
-[cpu_monitor_c]     4
-[read_miss_icache]     1
-[read_miss_icache_seq]     3
-[system_bus_monitor_c]     1
-Simulation complete via $finish(1) at time 1215 NS + 50
-/softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+Simulation complete via $finish(1) at time 0 FS + 0
+/softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_report_object.svh:292     $finish;
 ncsim> exit
 
 coverage setup:
@@ -326,6 +74,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_6d7c7886_4b63a902.ucm
-  data               :  ./cov_work/scope/test/icc_6d7c7886_4b63a902.ucd
-TOOL:	irun	15.20-s022: Exiting on Apr 13, 2020 at 23:28:13 CDT  (total: 00:00:02)
+  model(design data) :  ./cov_work/scope/icc_6d7c7886_11dbb04b.ucm
+  data               :  ./cov_work/scope/test/icc_6d7c7886_11dbb04b.ucd
+TOOL:	irun	15.20-s022: Exiting on Apr 14, 2020 at 02:52:22 CDT  (total: 00:00:03)

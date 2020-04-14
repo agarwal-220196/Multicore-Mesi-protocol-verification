@@ -20,14 +20,19 @@ class cpu_monitor_c extends uvm_monitor;
         REQUEST: coverpoint packet.request_type;
         //TODO: add coverpoints for Data, Address, etc.
 		DATA: coverpoint packet.dat{
-			option.auto_bin_max=20;
-		}
-		ADDRESS:coverpoint packet.address {
-			option.auto_bin_max=20;
-		}
-		ADDRESS_TYPE: coverpoint packet.addr_type;
-		ILLEGAL_CHECK: coverpoint packet.illegal;
-		NUMBER_OF_CYCLES: coverpoint packet.num_cycles;
+                option.auto_bin_max = 20;
+        }
+        ADDRESS: coverpoint packet.address{
+                option.auto_bin_max = 20;
+        }
+        ADDRESS_TYPE: coverpoint packet.addr_type;
+        NUMCYCLES: coverpoint packet.num_cycles;
+        ILLEGAL: coverpoint packet.illegal;
+		
+		X_TYPE__DATA: cross REQUEST, DATA;
+        X_TYPE__ADDR: cross REQUEST, ADDRESS;
+        X_TYPE__ADDRTYPE: cross REQUEST, ADDRESS_TYPE{
+		ignore_bins ignore_icache_write = binsof(REQUEST) intersect {WRITE_REQ} && binsof(ADDRESS_TYPE) intersect {ICACHE};}
 		
     endgroup
 
@@ -59,10 +64,23 @@ class cpu_monitor_c extends uvm_monitor;
 			
             @(posedge vi_cpu_lv1_if.cpu_rd or posedge vi_cpu_lv1_if.cpu_wr)
             packet = cpu_mon_packet_c::type_id::create("packet", this);
+            //READ request
             if(vi_cpu_lv1_if.cpu_rd === 1'b1) begin
                 packet.request_type = READ_REQ;
             end
+            //WRITE request
+            if(vi_cpu_lv1_if.cpu_wr === 1'b1) begin
+                  packet.request_type = WRITE_REQ;
+            end
+                
+
             packet.address = vi_cpu_lv1_if.addr_bus_cpu_lv1;
+            packet.addr_type = vi_cpu_lv1_if.addr_bus_cpu_lv1 < 32'h40000000 ? ICACHE: DCACHE;
+        
+            if( packet.addr_type == ICACHE && packet.request_type == WRITE_REQ) begin
+              packet.illegal = 1'b1;
+            end            
+    
             @(posedge vi_cpu_lv1_if.data_in_bus_cpu_lv1 or posedge vi_cpu_lv1_if.cpu_wr_done)
             packet.dat = vi_cpu_lv1_if.data_bus_cpu_lv1;
             @(negedge vi_cpu_lv1_if.cpu_rd or negedge vi_cpu_lv1_if.cpu_wr)

@@ -1,3 +1,5 @@
+
+  
 //=====================================================================
 // Project: 4 core MESI cache design
 // File Name: system_bus_interface.sv
@@ -47,13 +49,6 @@ interface system_bus_interface(input clk);
 		@(posedge clk)
 		$rose(signal_2) |-> ##[0:$] $past(signal_1);
 	endproperty
-	
-	//property that checks that signal_1 is asserted before signal_2 and also before signal_3
-    property prop_sig2_sig3_follows_sig1(signal_1,signal_2,signal_3);
-    @(posedge clk)
-	prop_sig1_sometime_before_sig2(signal_1,signal_2) and prop_sig1_sometime_before_sig2(signal_1,signal_3);
-    endproperty
-
 
 //ASSERTION1: lv2_wr_done should not be asserted without lv2_wr being asserted in previous cycle
     assert_lv2_wr_done: assert property (prop_sig1_before_sig2(lv2_wr,lv2_wr_done))
@@ -62,6 +57,7 @@ interface system_bus_interface(input clk);
 
 //ASSERTION2: data_in_bus_lv1_lv2 and cp_in_cache should not be asserted without lv2_rd being asserted in previous cycle
 
+//ASSERTION2: data_in_bus_lv1_lv2 should not be asserted without lv2_rd being asserted in previous cycle
 
 assert_data_in_bus_cp_in_cache_lv2_rd: assert property (prop_sig1_sometime_before_sig2(lv2_rd,data_in_bus_lv1_lv2))
     else
@@ -104,14 +100,15 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	
 //ASSERTION 8: data_in_bus_lv1_lv2 goes 
 	property read_data_checking;
-	@(posedge clk iff bus_rd)
-		$rose(data_in_bus_lv1_lv2)|=>$fell(bus_rd) |=>$fell(data_in_bus_lv1_lv2);
+	@(posedge clk)
+		$fell(data_in_bus_lv1_lv2)|-> ##[0:$] $past($fell(bus_rd));
 	endproperty
 	
 	assert_read_check :  assert property(read_data_checking)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion assert_read_check Failed:Read failed"))
 	
+
 
 
 //TODO: Add assertions at this interface
