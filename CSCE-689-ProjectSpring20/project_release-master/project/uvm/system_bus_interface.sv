@@ -41,6 +41,12 @@ interface system_bus_interface(input clk);
     @(posedge clk)
         signal_2 |-> $past(signal_1);
     endproperty
+	
+	//property that checks that signal_1 is asserted sometime before signal_2 assertion
+	property prop_sig1_sometime_before_sig2(signal_1,signal_2);
+		@(posedge clk)
+		$rose(signal_2) |-> ##[0:$] $past(signal_1);
+	endproperty
 
 //ASSERTION1: lv2_wr_done should not be asserted without lv2_wr being asserted in previous cycle
     assert_lv2_wr_done: assert property (prop_sig1_before_sig2(lv2_wr,lv2_wr_done))

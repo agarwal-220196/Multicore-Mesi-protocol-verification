@@ -103,7 +103,15 @@ class system_bus_monitor_c extends uvm_monitor;
 
             // wait for assertion of either bus_rd, bus_rdx or invalidate before monitoring other bus activities
             // lv2_rd for I-cache cases
-            @(posedge(vi_sbus_if.bus_rd | vi_sbus_if.bus_rdx | vi_sbus_if.invalidate | vi_sbus_if.lv2_rd));
+            @(posedge(vi_sbus_if.bus_rd | vi_sbus_if.bus_rdx | vi_sbus_if.invalidate | vi_sbus_if.lv2_rd | vi_sbus_if.lv2_wr));
+
+			if (vi_sbus_if.lv2_wr)
+			begin
+			s_packet.proc_evict_dirty_blk_flag = 1;
+			s_packet.proc_evict_dirty_blk_data = vi_sbus_if.data_bus_lv1_lv2;
+			s_packet.proc_evict_dirty_blk_addr = vi_sbus_if.addr_bus_lv1_lv2;
+			end
+			
             fork
                 begin: cp_in_cache_check
                     // check for cp_in_cache assertion
@@ -116,8 +124,18 @@ class system_bus_monitor_c extends uvm_monitor;
             join_none
 
             // bus request type
-            if (vi_sbus_if.bus_rd === 1'b1)
+            if (vi_sbus_if.bus_rd === 1'b1 && vi_sbus_if.addr_bus_lv1_lv2 >= 32'h4000_0000)//Data stored in instruction level cache is not shared so no coherence protocol is needed.
                 s_packet.bus_req_type = BUS_RD;
+				
+			if (vi_sbus_if.invalidate === 1'b1)
+                s_packet.bus_req_type = INVALIDATE;
+				
+			// bus request type with intention to modify 
+			if (vi_sbus_if.bus_rdx === 1'b1)
+                s_packet.bus_req_type = BUS_RDX;
+				
+			if (vi_sbus_if.bus_rd !== 1'b1 && vi_sbus_if.lv2_rd === 1'b1 && vi_sbus_if.addr_bus_lv1_lv2 < 32'h4000_0000)
+				s_packet.bus_req_type = ICACHE_RD;
 
             // proc which requested the bus access
             case (1'b1)
@@ -132,13 +150,17 @@ class system_bus_monitor_c extends uvm_monitor;
 
             // fork and call tasks
             fork: update_info
+				begin
+					@(|vi_sbus_if.bus_lv1_lv2_req_snoop)// check if any of the cpu is requesting a snoop 
+					s_packet.bus_req_snoop = vi_sbus_if.bus_lv1_lv2_req_snoop;
+				end
 
                 // to determine which of snoops or L2 serviced read miss
                 begin: req_service_check
                     if (s_packet.bus_req_type == BUS_RD)
                     begin
                         @(posedge vi_sbus_if.data_in_bus_lv1_lv2);
-                        `uvm_info(get_type_name(), "Bus read or bus readX successful", UVM_LOW)
+                        `uvm_info(get_type_name(), "Bus read successful", UVM_LOW)
                         s_packet.rd_data = vi_sbus_if.data_bus_lv1_lv2;
                         // check which had grant asserted
                         case (1'b1)
@@ -148,8 +170,65 @@ class system_bus_monitor_c extends uvm_monitor;
                             vi_sbus_if.bus_lv1_lv2_gnt_snoop[3]: s_packet.req_serviced_by = SERV_SNOOP3;
                             vi_sbus_if.bus_lv1_lv2_gnt_lv2     : s_packet.req_serviced_by = SERV_L2;
                         endcase
+					
+					if (vi_sbus_if.lv2_wr_done)
+						begin
+							s_packet.snoop_wr_req_flag = 1'b1;
+							s_packet.wr_data_snoop = vi_sbus_if.data_bus_lv1_lv2;
+						end
                     end
                 end: req_service_check
+				
+				begin: ICACHE_req_service_check // to determine if L2 serviced Icache read miss
+					if (s_packet.bus_req_type == ICACHE_RD)
+					begin
+						@(posedge vi_sbus_if.data_in_bus_lv1_lv2);
+						`uvm_info(get_type_name(), "ICACHE_RD successful", UVM_LOW)
+						s_packet.rd_data = vi_sbus_if.data_bus_lv1_lv2;
+						// check which had grant asserted
+						case (1'b1)
+						vi_sbus_if.bus_lv1_lv2_gnt_snoop[0]: s_packet.req_serviced_by = SERV_SNOOP0;
+						vi_sbus_if.bus_lv1_lv2_gnt_snoop[1]: s_packet.req_serviced_by = SERV_SNOOP1;
+						vi_sbus_if.bus_lv1_lv2_gnt_snoop[2]: s_packet.req_serviced_by = SERV_SNOOP2;
+						vi_sbus_if.bus_lv1_lv2_gnt_snoop[3]: s_packet.req_serviced_by = SERV_SNOOP3;
+						vi_sbus_if.bus_lv1_lv2_gnt_lv2     : s_packet.req_serviced_by = SERV_L2;
+						endcase
+					end
+				end: ICACHE_req_service_check
+				
+				begin: CHECK_INVALIDATE
+					if (s_packet.bus_req_type == INVALIDATE)
+					begin
+						@(posedge vi_sbus_if.all_invalidation_done);
+						`uvm_info(get_type_name(), "INVALIDATE successful", UVM_LOW)
+					end
+				end: CHECK_INVALIDATE
+				
+				begin :READ_MODIFY
+				   if(s_packet.bus_req_type == BUS_RDX)
+				   begin
+					@(posedge vi_sbus_if.clk);
+                      			@(posedge vi_sbus_if.clk); // wait for sufficient cycles for the snoop to identify 
+				      if(vi_sbus_if.cp_in_cache && |(vi_sbus_if.bus_lv1_lv2_req_snoop))// if found write it back to the cache 
+				      begin
+				         @(posedge vi_sbus_if.lv2_wr);
+				         s_packet.wr_data_snoop = vi_sbus_if.data_bus_lv1_lv2;
+				         s_packet.snoop_wr_req_flag = 1'b1;
+				      end
+				     @(posedge vi_sbus_if.data_in_bus_lv1_lv2);// read the data 
+					`uvm_info(get_type_name(), "BUS_RDX successful", UVM_LOW)
+				     s_packet.rd_data = vi_sbus_if.data_bus_lv1_lv2;
+				     case (1'b1)
+				        vi_sbus_if.bus_lv1_lv2_gnt_snoop[0]: s_packet.req_serviced_by = SERV_SNOOP0;
+					vi_sbus_if.bus_lv1_lv2_gnt_snoop[1]: s_packet.req_serviced_by = SERV_SNOOP1;
+					vi_sbus_if.bus_lv1_lv2_gnt_snoop[2]: s_packet.req_serviced_by = SERV_SNOOP2;
+					vi_sbus_if.bus_lv1_lv2_gnt_snoop[3]: s_packet.req_serviced_by = SERV_SNOOP3;
+					vi_sbus_if.bus_lv1_lv2_gnt_lv2     : s_packet.req_serviced_by = SERV_L2;
+				     endcase
+				   end
+				end: READ_MODIFY
+				
+				
 
             join_none : update_info
 
