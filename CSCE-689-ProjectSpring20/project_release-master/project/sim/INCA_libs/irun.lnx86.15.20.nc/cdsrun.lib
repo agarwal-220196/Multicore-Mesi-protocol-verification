@@ -1,3 +1,0 @@
-SOFTINCLUDE /softwares/Linux/cadence/INCISIVE152/tools/inca/files/cds.lib
-include ../../../../../../../../../cds.lib
-define worklib ../worklib
