@@ -40,7 +40,7 @@ interface cpu_lv1_interface(input clk);
 // Assertion2: Data_in_bus_cpu_lv1 is high only after data_bus_cpu_lv1 goes high in same cycle
  property prop_simult_data;
         @(posedge clk iff cpu_rd)
-			data_in_bus_cpu_lv1 |-> (data_bus_cpu_lv1 != 32'hz);
+			data_in_bus_cpu_lv1 |-> (data_bus_cpu_lv1 !== 32'hz);
     endproperty
 	
 	assert_simult_data :  assert property (prop_simult_data)
