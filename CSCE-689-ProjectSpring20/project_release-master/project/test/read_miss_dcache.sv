@@ -1,11 +1,7 @@
 //=====================================================================
 // Project: 4 core MESI cache design
 // File Name: read_miss_dcache.sv
-<<<<<<< HEAD
 // Description: Test for read-miss to D-cache
-=======
-// Description: Test for read-miss to I-cache
->>>>>>> Ashlesha
 // Designers: Venky & Suru
 //=====================================================================
 
@@ -33,11 +29,7 @@ class read_miss_dcache extends base_test;
 endclass : read_miss_dcache
 
 
-<<<<<<< HEAD
 // Sequence for a read-miss on D-cache
-=======
-// Sequence for a read-miss on I-cache
->>>>>>> Ashlesha
 class read_miss_dcache_seq extends base_vseq;
     //object macro
     `uvm_object_utils(read_miss_dcache_seq)

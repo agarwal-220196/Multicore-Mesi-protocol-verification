@@ -1,12 +1,9 @@
 //=====================================================================
 // Project: 4 core MESI cache design
 // File Name: write_miss_dcache.sv
-// Description: Test for read-miss to I-cache
+// Description: Test for write-miss to D-cache
 // Designers: Venky & Suru
 //=====================================================================
-
-//used the following commmand after : here to find and replace 
-//:1,$:s?write_miss_dcache?write_miss_dcache?g
 
 class write_miss_dcache extends base_test;
 
@@ -32,7 +29,7 @@ class write_miss_dcache extends base_test;
 endclass : write_miss_dcache
 
 
-// Sequence for a read-miss on I-cache
+// Sequence for a write-miss on D-cache
 class write_miss_dcache_seq extends base_vseq;
     //object macro
     `uvm_object_utils(write_miss_dcache_seq)
