@@ -1,6 +1,6 @@
     +access+rwc                   //allow probes to record signals
     -timescale 1ns/1ns            //set simulation time precision
-    //-gui                          //launch user interface
+    -gui                          //launch user interface
     -input ../uvm/waves.tcl
     //-write_metrics
 
