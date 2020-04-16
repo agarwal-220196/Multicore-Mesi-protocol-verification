@@ -8,3 +8,9 @@
 `include "base_test.sv"
 `include "read_miss_icache.sv"
 `include "read_miss_dcache.sv"
+<<<<<<< HEAD
+=======
+`include "write_miss_icache.sv"
+`include "write_miss_dcache.sv"
+
+>>>>>>> Ashlesha

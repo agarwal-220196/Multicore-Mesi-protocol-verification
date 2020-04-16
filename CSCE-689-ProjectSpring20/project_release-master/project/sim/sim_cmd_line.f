@@ -2,11 +2,12 @@
 //command line run
     +access+rwc                   //allow probes to record signals
     -timescale 1ns/1ns            //set simulation time precision
-    -R                            //use previously snapshot for simulation
+    -R
+    //-gui                                //use previously snapshot for simulation
     -coverage A                   // record "all" coverage
     -covoverwrite                 // overwrite existing coverage db
     -covfile ./cov_conf.ccf     // feed in coverage configuration file
-//    -input ../uvm/waves.tcl
+    -input ../uvm/waves.tcl //uncommented by ashlesha on date : APRIL 13th 2020
 
 //setup UVM home
     -uvmhome $UVMHOME
