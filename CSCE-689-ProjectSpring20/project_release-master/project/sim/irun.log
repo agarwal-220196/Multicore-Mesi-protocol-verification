@@ -1,0 +1,350 @@
+irun: 15.20-s022: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	irun	15.20-s022: Started on Apr 15, 2020 at 20:38:56 CDT
+irun
+	-f sim_cmd_line.f
+		+access+rwc
+		-timescale 1ns/1ns
+		-R
+		-coverage A
+		-covoverwrite
+		-covfile ./cov_conf.ccf
+		-input ../uvm/waves.tcl
+		-uvmhome /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv
+		+UVM_VERBOSITY=UVM_LOW
+	+UVM_TESTNAME=read_miss_dcache
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_LOW
+
+Loading snapshot worklib.top:sv .................... Done
+SVSEED default: 1
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim> source /softwares/Linux/cadence/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> source /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/files/tcl/uvm_sim.tcl
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create top -all -memories -depth all -tasks -functions -all -database waves -waveform
+ncsim: *W,PRFRTNEV: (-FUNCTION) Database must be opened in -EVENT mode to capture calling scope data.
+ncsim: *W,PRLDYN: The design contains dynamic objects. The "-all" option excludes dynamic objects to improve performance. To enable probing of dynamic objects the "-all -dynamic" options should be added to the probe command.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_wrapper_lv2.inst_cache_block_lv2.inst_main_func_lv2.cache_var" of 2097152 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 2097152 top.inst_cache_top.inst_cache_wrapper_lv2.inst_cache_block_lv2.inst_main_func_lv2.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_wrapper_lv2.inst_cache_block_lv2.inst_main_func_lv2.cache_proc_contr" of 2097152 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 2097152 top.inst_cache_top.inst_cache_wrapper_lv2.inst_cache_block_lv2.inst_main_func_lv2.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_wrapper_lv2.inst_cache_controller_lv2.inst_lru_block_lv2.lru_var" of 262144 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 262144 top.inst_cache_top.inst_cache_wrapper_lv2.inst_cache_controller_lv2.inst_lru_block_lv2.lru_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_0.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_1.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_2.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_dl.inst_cache_block_lv1_dl.inst_main_func_lv1_dl.cache_proc_contr'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_var'.
+ncsim: *W,PRUASZ: Unpacked array at "top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr" of 65536 elements exceeds limit of 16384 - not probed
+ Use 'probe -create -unpacked 65536 top.inst_cache_top.inst_cache_lv1_multicore.inst_cache_lv1_unicore_3.inst_cache_wrapper_lv1_il.inst_cache_block_lv1_il.inst_main_func_lv1_il.cache_proc_contr'.
+Created probe 1
+ncsim> 
+ncsim> run
+----------------------------------------------------------------
+CDNS-UVM-1.1d (15.20-s022)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO ../uvm/top.sv(140) @ 0: reporter [TOP] Starting UVM test
+UVM_INFO @ 0: reporter [RNTST] Running test read_miss_dcache...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+---------------------------------------------------------------------
+Name                        Type                     Size  Value     
+---------------------------------------------------------------------
+uvm_test_top                read_miss_dcache         -     @2817     
+  tb                        env                      -     @2927     
+    cpu[0]                  cpu_agent_c              -     @2965     
+      driver                cpu_driver_c             -     @4775     
+        rsp_port            uvm_analysis_port        -     @4926     
+          recording_detail  integral                 32    'd1       
+        seq_item_port       uvm_seq_item_pull_port   -     @4877     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      monitor               cpu_monitor_c            -     @4056     
+        mon_out             uvm_analysis_port        -     @4158     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      sequencer             cpu_sequencer_c          -     @4190     
+        rsp_export          uvm_analysis_export      -     @4246     
+          recording_detail  integral                 32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp    -     @4796     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+        arbitration_queue   array                    0     -         
+        lock_queue          array                    0     -         
+        num_last_reqs       integral                 32    'd1       
+        num_last_rsps       integral                 32    'd1       
+      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+      recording_detail      integral                 32    'd1       
+    cpu[1]                  cpu_agent_c              -     @2963     
+      driver                cpu_driver_c             -     @5636     
+        rsp_port            uvm_analysis_port        -     @5781     
+          recording_detail  integral                 32    'd1       
+        seq_item_port       uvm_seq_item_pull_port   -     @5733     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      monitor               cpu_monitor_c            -     @4982     
+        mon_out             uvm_analysis_port        -     @5030     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      sequencer             cpu_sequencer_c          -     @5060     
+        rsp_export          uvm_analysis_export      -     @5116     
+          recording_detail  integral                 32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp    -     @5656     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+        arbitration_queue   array                    0     -         
+        lock_queue          array                    0     -         
+        num_last_reqs       integral                 32    'd1       
+        num_last_rsps       integral                 32    'd1       
+      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+      recording_detail      integral                 32    'd1       
+    cpu[2]                  cpu_agent_c              -     @2995     
+      driver                cpu_driver_c             -     @6484     
+        rsp_port            uvm_analysis_port        -     @6629     
+          recording_detail  integral                 32    'd1       
+        seq_item_port       uvm_seq_item_pull_port   -     @6581     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      monitor               cpu_monitor_c            -     @5830     
+        mon_out             uvm_analysis_port        -     @5878     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      sequencer             cpu_sequencer_c          -     @5908     
+        rsp_export          uvm_analysis_export      -     @5964     
+          recording_detail  integral                 32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp    -     @6504     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+        arbitration_queue   array                    0     -         
+        lock_queue          array                    0     -         
+        num_last_reqs       integral                 32    'd1       
+        num_last_rsps       integral                 32    'd1       
+      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+      recording_detail      integral                 32    'd1       
+    cpu[3]                  cpu_agent_c              -     @3025     
+      driver                cpu_driver_c             -     @7332     
+        rsp_port            uvm_analysis_port        -     @7477     
+          recording_detail  integral                 32    'd1       
+        seq_item_port       uvm_seq_item_pull_port   -     @7429     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      monitor               cpu_monitor_c            -     @6678     
+        mon_out             uvm_analysis_port        -     @6726     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+      sequencer             cpu_sequencer_c          -     @6756     
+        rsp_export          uvm_analysis_export      -     @6812     
+          recording_detail  integral                 32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp    -     @7352     
+          recording_detail  integral                 32    'd1       
+        recording_detail    integral                 32    'd1       
+        arbitration_queue   array                    0     -         
+        lock_queue          array                    0     -         
+        num_last_reqs       integral                 32    'd1       
+        num_last_rsps       integral                 32    'd1       
+      is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+      recording_detail      integral                 32    'd1       
+    sb                      cache_scoreboard_c       -     @3757     
+      sb_cpu0m              uvm_analysis_imp_cpu0m   -     @3874     
+        recording_detail    integral                 32    'd1       
+      sb_cpu1m              uvm_analysis_imp_cpu1m   -     @3925     
+        recording_detail    integral                 32    'd1       
+      sb_cpu2m              uvm_analysis_imp_cpu2m   -     @3974     
+        recording_detail    integral                 32    'd1       
+      sb_cpu3m              uvm_analysis_imp_cpu3m   -     @4023     
+        recording_detail    integral                 32    'd1       
+      sb_sbus               uvm_analysis_imp_sbus    -     @4072     
+        recording_detail    integral                 32    'd1       
+      recording_detail      integral                 32    'd1       
+    sbus_monitor            system_bus_monitor_c     -     @3673     
+      sbus_out              uvm_analysis_port        -     @3775     
+        recording_detail    integral                 32    'd1       
+      recording_detail      integral                 32    'd1       
+    vsequencer              virtual_sequencer_c      -     @3055     
+      rsp_export            uvm_analysis_export      -     @3144     
+        recording_detail    integral                 32    'd1       
+      seq_item_export       uvm_seq_item_pull_imp    -     @3694     
+        recording_detail    integral                 32    'd1       
+      recording_detail      integral                 32    'd1       
+      arbitration_queue     array                    0     -         
+      lock_queue            array                    0     -         
+      num_last_reqs         integral                 32    'd1       
+      num_last_rsps         integral                 32    'd1       
+    recording_detail        integral                 32    'd1       
+---------------------------------------------------------------------
+
+UVM_INFO ../test/read_miss_dcache.sv(26) @ 0: uvm_test_top [read_miss_dcache] Executing read_miss_dcache test
+SDI/Verilog Transaction Recording Facility Version 15.20-s022
+UVM_INFO ../uvm/system_bus_monitor_c.sv(59) @ 0: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] RUN Phase
+UVM_INFO ../uvm/cache_scoreboard_c.sv(66) @ 0: uvm_test_top.tb.sb [cache_scoreboard_c] RUN Phase
+UVM_INFO ../uvm/cpu_monitor_c.sv(41) @ 0: uvm_test_top.tb.cpu[3].monitor [cpu_monitor_c] RUN Phase
+UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] RUN Phase
+UVM_INFO ../uvm/cpu_monitor_c.sv(41) @ 0: uvm_test_top.tb.cpu[2].monitor [cpu_monitor_c] RUN Phase
+UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] RUN Phase
+UVM_INFO ../uvm/cpu_monitor_c.sv(41) @ 0: uvm_test_top.tb.cpu[1].monitor [cpu_monitor_c] RUN Phase
+UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] RUN Phase
+UVM_INFO ../uvm/cpu_monitor_c.sv(41) @ 0: uvm_test_top.tb.cpu[0].monitor [cpu_monitor_c] RUN Phase
+UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] RUN Phase
+UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@read_miss_dcache_seq [read_miss_dcache_seq] raise_objection
+UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@read_miss_dcache_seq [read_miss_dcache_seq] Main Processor=3	SP1=2	SP2=0
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Input Data to Send:
+-------------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                          
+-------------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7955                                          
+  data                         integral           32    'haaaa5555                                     
+  address                      integral           32    'h96507b76                                     
+  request_type                 request_t          1     READ_REQ                                       
+  access_cache_type            access_cache_t     1     DCACHE_ACC                                     
+  begin_time                   time               64    0                                              
+  depth                        int                32    'd2                                            
+  parent sequence (name)       string             20    read_miss_dcache_seq                           
+  parent sequence (full name)  string             47    uvm_test_top.tb.vsequencer.read_miss_dcache_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[3].sequencer               
+-------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/system_bus_monitor_c.sv(67) @ 135: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
+UVM_INFO ../uvm/system_bus_monitor_c.sv(107) @ 205: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Bus read or bus readX successful
+UVM_INFO ../uvm/system_bus_monitor_c.sv(125) @ 215: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
+ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,376): (time 225 NS) Assertion top.inst_system_bus_if.assert_bus_lv1_lv2_gnt_lv2_then_bus_lv1_lv2_gnt_proc has failed 
+UVM_ERROR ../uvm/system_bus_interface.sv(378) @ 225: reporter [system_bus_interface] Assertion bus_lv1_lv2_gnt_lv2_then_bus_lv1_lv2_gnt_proc Failed: bus_lv1_lv2_gnt_proc to be high if bus_lv1_lv2_req_lv2 asserted!
+UVM_INFO ../uvm/cache_scoreboard_c.sv(539) @ 235: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU3:
+--------------------------------------------------
+Name            Type              Size  Value     
+--------------------------------------------------
+packet          cpu_mon_packet_c  -     @7866     
+  dat           integral          32    'haaaa5555
+  address       integral          32    'h96507b76
+  num_cycles    integral          32    'h0       
+  illegal       integral          1     'h0       
+  request_type  request_t         1     READ_REQ  
+  addr_type     addr_t            32    ICACHE    
+--------------------------------------------------
+
+UVM_INFO ../uvm/cache_scoreboard_c.sv(293) @ 235: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU3
+UVM_INFO ../uvm/cache_scoreboard_c.sv(295) @ 235: uvm_test_top.tb.sb [cache_scoreboard_c] Data match!!! expected = aaaa5555 received = aaaa5555
+UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 235: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
+UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 235: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
+-------------------------------------------------------------
+Name                         Type            Size  Value     
+-------------------------------------------------------------
+s_packet                     sbus_packet_c   -     @7870     
+  bus_req_type               bus_req_t       32    BUS_RD    
+  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC3 
+  req_address                integral        32    'h96507b74
+  bus_req_snoop              integral        4     'h0       
+  req_serviced_by            serv_by_t       32    SERV_L2   
+  rd_data                    integral        32    'haaaa5555
+  wr_data_snoop              integral        32    'h0       
+  snoop_wr_req_flag          integral        1     'h0       
+  cp_in_cache                integral        1     'h0       
+  shared                     integral        1     'h0       
+  service_time               integral        32    'h0       
+  proc_evict_dirty_blk_addr  integral        32    'h0       
+  proc_evict_dirty_blk_data  integral        32    'h0       
+  proc_evict_dirty_blk_flag  integral        1     'h0       
+-------------------------------------------------------------
+
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 255: uvm_test_top.tb.cpu[3].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/virtual_seqs.sv(38) @ 255: uvm_test_top.tb.vsequencer@@read_miss_dcache_seq [read_miss_dcache_seq] drop_objection
+UVM_INFO /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 255: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+---Test Summary---
+
+---Final Test Status---
+
+Test FAIL
+ncsim: *E,ERRSEV (../test/base_test.sv,65): (time 255 NS).
+top.base_test.report_phase
+ _____ _    ___ _
+|  ___/ \  |_ _| |
+| |_ / _ \  | || |
+|  _/ ___ \ | || |___
+|_|/_/   \_\___|_____|
+
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   28
+UVM_WARNING :    0
+UVM_ERROR :    1
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[TOP]     1
+[UVMTOP]     1
+[cache_scoreboard_c]     6
+[cpu_driver_c]     6
+[cpu_monitor_c]     4
+[read_miss_dcache]     1
+[read_miss_dcache_seq]     3
+[system_bus_interface]     1
+[system_bus_monitor_c]     4
+Simulation complete via $finish(1) at time 255 NS + 50
+/softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+ncsim> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_6d7c7886_6d03d5ea.ucm
+  data               :  ./cov_work/scope/test/icc_6d7c7886_6d03d5ea.ucd
+TOOL:	irun	15.20-s022: Exiting on Apr 15, 2020 at 20:38:58 CDT  (total: 00:00:02)
