@@ -23,7 +23,7 @@ class write_miss_dcache extends base_test;
 
     //UVM run phase()
     task run_phase(uvm_phase phase);
-        `uvm_info(get_type_name(), "Executing write_miss_dcache test" , UVM_LOW)
+        `uvm_info(get_type_name(), "Execute : write_miss_dcache test" , UVM_LOW)
     endtask: run_phase
 
 endclass : write_miss_dcache
