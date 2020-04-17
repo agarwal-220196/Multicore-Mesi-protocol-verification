@@ -34,7 +34,7 @@ interface cpu_lv1_interface(input clk);
 
     assert_simult_cpu_wr_rd: assert property (prop_simult_cpu_wr_rd)
     else
-        `uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_simult_cpu_wr_rd Failed: cpu_wr and cpu_rd asserted simultaneously"))
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion 1 assert_simult_cpu_wr_rd Failed: cpu_wr and cpu_rd asserted simultaneously"))
 
 //TODO: Add assertions at this interface
 //----------------------------------ADDING ALL THE PREVIOUS ASSERTIONS FROM LABS----------------------
@@ -50,7 +50,7 @@ interface cpu_lv1_interface(input clk);
 	
 	assert_simult_data :  assert property (prop_simult_data)
 	else 	
-		`uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_simult_data Failed: Data_in_bus_cpu_lv1 raised before data is available"))
+		`uvm_error("cpu_lv1_interface",$sformatf("Assertion 2 assert_simult_data Failed: Data_in_bus_cpu_lv1 raised before data is available"))
 		
 		
 //Assertion3: cpu_wr_done before cpu_wr occurs 
@@ -61,7 +61,7 @@ interface cpu_lv1_interface(input clk);
 
 	assert_write_check : assert property (prop_write_check)
 	else 
-		`uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_write_check Failed: write done is made high without cpu_write being high") )
+		`uvm_error("cpu_lv1_interface",$sformatf("Assertion 3 assert_write_check Failed: write done is made high without cpu_write being high") )
 
 
 	
@@ -72,7 +72,7 @@ interface cpu_lv1_interface(input clk);
 	endproperty
 	assert_cache_valid_address: assert property (prop_cache_valid_address)
 	else
-	`uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_cache_valid_address failed: Write to icache is invalid"))
+	`uvm_error("cpu_lv1_interface",$sformatf("Assertion 4 assert_cache_valid_address failed: Write to icache is invalid"))
 	
 	//ASSERTION 5 (modified - REMOVED $PAST): data_in_bus_cpu_lv1 signal should be high following a cpu_rd request
 	property data_in_bus_following_rd_wr;
@@ -81,7 +81,7 @@ interface cpu_lv1_interface(input clk);
 	endproperty
 	assert_data_in_bus_following_rd_wr: assert property (data_in_bus_following_rd_wr)
 	else
-	`uvm_error("cpu_lv1_interface",$sformatf("Assertion assert_data_in_bus_following_rd_wr failed: data_in_bus_cpu_lv1 asserted without cpu_rd or cpu_wr signal"))
+	`uvm_error("cpu_lv1_interface",$sformatf("Assertion 5 assert_data_in_bus_following_rd_wr failed: data_in_bus_cpu_lv1 asserted without cpu_rd or cpu_wr signal"))
 	
 	//ASSERTION 6: if a signal occurs, then following sequence should also take place
 	
@@ -91,7 +91,7 @@ interface cpu_lv1_interface(input clk);
 	endproperty
 	assert_checking_data_in_cpu_rd_seq: assert property (checking_sequence_type_1)
 	else
-        `uvm_error("cpu_lv1_interface",$sformatf("Assertion checking_sequence_type_1 Failed: data_in_bus_cpu_lv1 and cpu_rd sequence"))
+        `uvm_error("cpu_lv1_interface",$sformatf("Assertion 6 checking_sequence_type_1 Failed: data_in_bus_cpu_lv1 and cpu_rd sequence"))
 
 
 //ASSERTION 7: cpu_wr_done should follow cpu_wr
@@ -102,7 +102,7 @@ interface cpu_lv1_interface(input clk);
 	endproperty
 	assert_chceking_cpu_wr_follow_cpu_wr_done: assert property(checking_sequence_type_3)
 	else	
-		`uvm_error("cpu_lv1_interface",$sformatf("Assertion checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other "))
+		`uvm_error("cpu_lv1_interface",$sformatf("Assertion 7 checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other "))
 		
 //ASSERTION 8: checking validity of address while reading.
 	property address_validity_cpu_rd;
@@ -111,7 +111,7 @@ interface cpu_lv1_interface(input clk);
 		endproperty
 	assert_valid_address_cpu_rd: assert property(address_validity_cpu_rd)
 	else	
-		`uvm_error("cpu_lv1_interface",$sformatf("Assertion address_validity_cpu_rd Failed: Address not validity"))
+		`uvm_error("cpu_lv1_interface",$sformatf("Assertion 8 address_validity_cpu_rd Failed: Address not validity"))
 	
 	
 //ASSETION 9: checking validity of data and address
@@ -121,6 +121,6 @@ interface cpu_lv1_interface(input clk);
 		endproperty
 	assert_valid_address_data_cpu_wr: assert property(address_data_validity_cpu_wr)
 	else	
-		`uvm_error("cpu_lv1_interface",$sformatf("Assertion address_validity_cpu_rd Failed: Address not validity"))
+		`uvm_error("cpu_lv1_interface",$sformatf("Assertion 9 address_validity_cpu_rd Failed: Address not validity"))
 	
 endinterface
