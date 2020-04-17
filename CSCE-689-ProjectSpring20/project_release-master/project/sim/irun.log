@@ -1,5 +1,5 @@
 irun: 15.20-s022: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	irun	15.20-s022: Started on Apr 17, 2020 at 01:11:29 CDT
+TOOL:	irun	15.20-s022: Started on Apr 17, 2020 at 16:11:18 CDT
 irun
 	-f cmd_line_comp_elab.f
 		+access+rwc
@@ -53,8 +53,8 @@ irun
 	+UVM_VERBOSITY=UVM_LOW
 
 Recompiling... reason: file '../uvm/system_bus_interface.sv' is newer than expected.
-	expected: Fri Apr 17 00:50:37 2020
-	actual:   Fri Apr 17 01:10:41 2020
+	expected: Fri Apr 17 16:03:43 2020
+	actual:   Fri Apr 17 16:11:07 2020
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv
 file: ../uvm/system_bus_interface.sv
 	interface worklib.system_bus_interface:sv
@@ -72,20 +72,130 @@ ncvlog: *W,ENUMERR (../uvm/cache_scoreboard_c.sv,307|36): This assignment is a v
 		cdns_uvm_pkg
 		cpu_pkg
 		top
-  uvm_root top;
-             |
-ncelab: *E,CFUNST (/softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_globals.svh,117|13): Datatype unsupported in constant functions.
-ncelab: *F,INTERR: INTERNAL EXCEPTION
------------------------------------------------------------------
-The tool has encountered an unexpected condition and must exit.
-Contact Cadence Design Systems customer support about this
-problem and provide enough information to help us reproduce it,
-including the logfile that contains this error message.
-  TOOL:	ncelab	15.20-s022
-  HOSTNAME: hera3.ece.tamu.edu
-  OPERATING SYSTEM: Linux 3.10.0-1062.12.1.el7.x86_64 #1 SMP Tue Feb 4 23:02:59 UTC 2020 x86_64
-  MESSAGE: sv_seghandler - trapno -1 addr(0x2546cc0)
------------------------------------------------------------------
-csi-ncelab - CSI: Cadence Support Investigation, sending details to /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/ncelab_40827.err
-irun: *E,ELBERR: Error during elaboration (status 255), exiting.
-TOOL:	irun	15.20-s022: Exiting on Apr 17, 2020 at 01:11:31 CDT  (total: 00:00:02)
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+	Extracting FSMs for coverage:
+		worklib.memory
+		worklib.lrs_arbiter
+		worklib.blk_hit_proc_md
+		worklib.addr_segregator_proc
+		worklib.free_blk_md
+		worklib.access_blk_proc_md
+		worklib.blk_to_be_accessed_md
+		worklib.main_func_lv2
+		worklib.cache_block_lv2
+		worklib.lru_block_lv2
+		worklib.cache_controller_lv2
+		worklib.cache_wrapper_lv2
+		worklib.lru_block_lv1
+		worklib.mesi_fsm_lv1
+		worklib.cache_controller_lv1_dl
+		worklib.blk_hit_snoop_md
+		worklib.addr_segregator_snoop
+		worklib.access_blk_snoop_md
+		worklib.blk_to_be_accessed_snoop_md
+		worklib.main_func_lv1_dl
+		worklib.cache_block_lv1_dl
+		worklib.cache_wrapper_lv1_dl
+		worklib.cache_controller_lv1_il
+		worklib.main_func_lv1_il
+		worklib.cache_block_lv1_il
+		worklib.cache_wrapper_lv1_il
+		worklib.cache_lv1_unicore
+		worklib.cache_lv1_multicore
+		worklib.cache_top
+		worklib.top
+	Total FSMs extracted = 0
+                                                .addr_bus_lv1_lv2(addr_bus_lv1_lv2),
+                                                                                 |
+ncelab: *W,CUVMPW (../design/lv1/cache_lv1_multicore.sv,165|81): port sizes differ in port connection (32/15).
+                                                .addr_bus_cpu_lv1(addr_bus_cpu_lv1_1),
+                                                                                   |
+ncelab: *W,CUVMPW (../design/lv1/cache_lv1_multicore.sv,167|83): port sizes differ in port connection (32/15).
+        expected.bus_req_proc_num = i;
+                                    |
+ncelab: *W,ENUMERR (../uvm/cache_scoreboard_c.sv,307|36): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+	Building instance overlay tables: ......
+class sbus_packet_c extends uvm_sequence_item;
+                  |
+ncelab: *W,COVUCC (../uvm/sbus_packet_c.sv,12|18): Block and Expression coverage types are not supported inside SystemVerilog classes. Use CCF command to enable type-based block coverage. There may also be other such classes in the design.
+.............. Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+ncelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.system_bus_interface:sv <0x6cba8c21>
+			streams: 142, words: 138141
+		worklib.top:sv <0x335f304a>
+			streams: 171, words: 238932
+		worklib.top:sv <0x44443c62>
+			streams:  27, words: 32124
+		worklib.top:sv <0x7e073fb2>
+			streams:  27, words: 33073
+		worklib.uvm_pkg:sv <0x0b16dad6>
+			streams:  70, words: 97998
+		worklib.uvm_pkg:sv <0x0eda19a9>
+			streams:  24, words: 29634
+		worklib.uvm_pkg:sv <0x135c0ac9>
+			streams:  24, words: 20474
+		worklib.uvm_pkg:sv <0x17f2779f>
+			streams:  24, words: 100034
+		worklib.uvm_pkg:sv <0x19c24cda>
+			streams:  25, words: 28242
+		worklib.uvm_pkg:sv <0x236f6eca>
+			streams:  74, words: 246064
+		worklib.uvm_pkg:sv <0x2b3ea3f2>
+			streams:  22, words: 17002
+		worklib.uvm_pkg:sv <0x32df9dd6>
+			streams:  25, words: 33660
+		worklib.uvm_pkg:sv <0x3dd426f0>
+			streams:  25, words: 28242
+		worklib.uvm_pkg:sv <0x403d6551>
+			streams:  25, words: 28242
+		worklib.uvm_pkg:sv <0x4ac2a74b>
+			streams:  25, words: 36644
+		worklib.uvm_pkg:sv <0x56153da9>
+			streams:  25, words: 28242
+		worklib.uvm_pkg:sv <0x56526596>
+			streams:  24, words: 20474
+		worklib.uvm_pkg:sv <0x5a6bbc85>
+			streams:  24, words: 20474
+		worklib.uvm_pkg:sv <0x5d202794>
+			streams:  24, words: 20474
+		worklib.uvm_pkg:sv <0x650dd24c>
+			streams: 103, words: 160495
+		worklib.uvm_pkg:sv <0x663c66eb>
+			streams:  24, words: 20474
+		worklib.uvm_pkg:sv <0x7ff38810>
+			streams: 110, words: 212359
+    integer i;
+            |
+ncelab: *W,COVUTA (../design/common/access_blk_proc_md.sv,31|12): Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory, and array of enum. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
+    wire [MESI_WID - 1 : 0] cache_mesi [ASSOC - 1 : 0];
+                                     |
+ncelab: *W,COVMDD (../design/common/access_blk_proc_md.sv,32|37): Toggle coverage for bit, logic, reg, wire, and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage on for these types specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+	Building instance specific data structures.
+ncelab: *W,CGPIDF: Covergroup "per_instance" option , by default, is set as 0.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                     128      30
+		Interfaces:                    5       2
+		Verilog packages:              5       5
+		Resolved nets:                 0       2
+		Registers:                 16216   11047
+		Scalar wires:                343       -
+		Expanded wires:              726      29
+		Vectored wires:              450       -
+		Named events:                 76      57
+		Always blocks:               450     222
+		Initial blocks:              501     256
+		Parallel blocks:              30      31
+		Cont. assignments:           323      61
+		Pseudo assignments:           29      25
+		Assertions:                   74      47
+		Covergroup Instances:          0       2
+		SV Class declarations:       219     333
+		SV Class specializations:    429     429
+		Simulation timescale:        1ns
+	Writing initial simulation snapshot: worklib.top:sv
+TOOL:	irun	15.20-s022: Exiting on Apr 17, 2020 at 16:11:21 CDT  (total: 00:00:03)
