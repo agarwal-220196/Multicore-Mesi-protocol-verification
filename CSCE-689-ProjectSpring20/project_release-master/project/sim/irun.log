@@ -1,5 +1,5 @@
 irun: 15.20-s022: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	irun	15.20-s022: Started on Apr 15, 2020 at 23:08:13 CDT
+TOOL:	irun	15.20-s022: Started on Apr 17, 2020 at 01:11:29 CDT
 irun
 	-f cmd_line_comp_elab.f
 		+access+rwc
@@ -52,9 +52,10 @@ irun
    User defined plus("+") options:
 	+UVM_VERBOSITY=UVM_LOW
 
-file: ../uvm/cpu_lv1_interface.sv
-	interface worklib.cpu_lv1_interface:sv
-		errors: 0, warnings: 0
+Recompiling... reason: file '../uvm/system_bus_interface.sv' is newer than expected.
+	expected: Fri Apr 17 00:50:37 2020
+	actual:   Fri Apr 17 01:10:41 2020
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv
 file: ../uvm/system_bus_interface.sv
 	interface worklib.system_bus_interface:sv
 		errors: 0, warnings: 0
@@ -71,318 +72,20 @@ ncvlog: *W,ENUMERR (../uvm/cache_scoreboard_c.sv,307|36): This assignment is a v
 		cdns_uvm_pkg
 		cpu_pkg
 		top
-ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-
-	Extracting FSMs for coverage:
-		worklib.memory
-		worklib.lrs_arbiter
-		worklib.blk_hit_proc_md
-		worklib.addr_segregator_proc
-		worklib.free_blk_md
-		worklib.access_blk_proc_md
-		worklib.blk_to_be_accessed_md
-		worklib.main_func_lv2
-		worklib.cache_block_lv2
-		worklib.lru_block_lv2
-		worklib.cache_controller_lv2
-		worklib.cache_wrapper_lv2
-		worklib.lru_block_lv1
-		worklib.mesi_fsm_lv1
-		worklib.cache_controller_lv1_dl
-		worklib.blk_hit_snoop_md
-		worklib.addr_segregator_snoop
-		worklib.access_blk_snoop_md
-		worklib.blk_to_be_accessed_snoop_md
-		worklib.main_func_lv1_dl
-		worklib.cache_block_lv1_dl
-		worklib.cache_wrapper_lv1_dl
-		worklib.cache_controller_lv1_il
-		worklib.main_func_lv1_il
-		worklib.cache_block_lv1_il
-		worklib.cache_wrapper_lv1_il
-		worklib.cache_lv1_unicore
-		worklib.cache_lv1_multicore
-		worklib.cache_top
-		worklib.top
-	Total FSMs extracted = 0
-                                                .addr_bus_lv1_lv2(addr_bus_lv1_lv2),
-                                                                                 |
-ncelab: *W,CUVMPW (../design/lv1/cache_lv1_multicore.sv,165|81): port sizes differ in port connection (32/15).
-                                                .addr_bus_cpu_lv1(addr_bus_cpu_lv1_1),
-                                                                                   |
-ncelab: *W,CUVMPW (../design/lv1/cache_lv1_multicore.sv,167|83): port sizes differ in port connection (32/15).
-        expected.bus_req_proc_num = i;
-                                    |
-ncelab: *W,ENUMERR (../uvm/cache_scoreboard_c.sv,307|36): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
-	Building instance overlay tables: ......
-class sbus_packet_c extends uvm_sequence_item;
-                  |
-ncelab: *W,COVUCC (../uvm/sbus_packet_c.sv,12|18): Block and Expression coverage types are not supported inside SystemVerilog classes. Use CCF command to enable type-based block coverage. There may also be other such classes in the design.
-.....
-            index_proc      = address[INDEX_MSB : INDEX_LSB];
-                                    |
-ncelab: *W,BNDWRN (../design/common/addr_segregator_proc.sv,32|36): Bit-select or part-select index out of declared bounds.
-            tag_proc        = address[TAG_MSB : TAG_LSB];
-                                    |
-ncelab: *W,BNDWRN (../design/common/addr_segregator_proc.sv,33|36): Bit-select or part-select index out of declared bounds.
-            index_proc      = zeros[INDEX_MSB : INDEX_LSB];
-                                  |
-ncelab: *W,BNDWRN (../design/common/addr_segregator_proc.sv,37|34): Bit-select or part-select index out of declared bounds.
-            tag_proc        = zeros[TAG_MSB : TAG_LSB];
-                                  |
-ncelab: *W,BNDWRN (../design/common/addr_segregator_proc.sv,38|34): Bit-select or part-select index out of declared bounds.
-.
-            index_snoop      = address[INDEX_MSB : INDEX_LSB];
-                                     |
-ncelab: *W,BNDWRN (../design/lv1/addr_segregator_snoop.sv,33|37): Bit-select or part-select index out of declared bounds.
-            tag_snoop        = address[TAG_MSB : TAG_LSB];
-                                     |
-ncelab: *W,BNDWRN (../design/lv1/addr_segregator_snoop.sv,34|37): Bit-select or part-select index out of declared bounds.
-            index_snoop      = zeros[INDEX_MSB : INDEX_LSB];
-                                   |
-ncelab: *W,BNDWRN (../design/lv1/addr_segregator_snoop.sv,38|35): Bit-select or part-select index out of declared bounds.
-            tag_snoop        = zeros[TAG_MSB : TAG_LSB];
-                                   |
-ncelab: *W,BNDWRN (../design/lv1/addr_segregator_snoop.sv,39|35): Bit-select or part-select index out of declared bounds.
-........ Done
-	Enabling instrumentation for coverage types: block expression FSM toggle functional
-ncelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
-	Generating native compiled code:
-		worklib.access_blk_proc_md:sv <0x151acda2>
-			streams:  17, words:  4553
-		worklib.access_blk_proc_md:sv <0x6ae3a81c>
-			streams:   9, words:  3234
-		worklib.access_blk_snoop_md:sv <0x028c157d>
-			streams:   9, words:  3322
-		worklib.addr_segregator_proc:sv <0x1d18593f>
-			streams:   2, words:  2772
-		worklib.addr_segregator_proc:sv <0x3e528e3a>
-			streams:   2, words:  2987
-		worklib.addr_segregator_proc:sv <0x5c68cf2e>
-			streams:   2, words:  3112
-		worklib.addr_segregator_snoop:sv <0x42f0c767>
-			streams:   2, words:  3200
-		worklib.addr_segregator_snoop:sv <0x50ba7ce4>
-			streams:   2, words:  2860
-		worklib.blk_hit_proc_md:sv <0x34b55cf5>
-			streams:   1, words:  1198
-		worklib.blk_hit_proc_md:sv <0x4cd5c59b>
-			streams:   1, words:  1198
-		worklib.blk_hit_snoop_md:sv <0x64e55fa4>
-			streams:   1, words:  1286
-		worklib.blk_to_be_accessed_md:sv <0x241209dc>
-			streams:   1, words:  1491
-		worklib.blk_to_be_accessed_md:sv <0x42a5895d>
-			streams:   1, words:  1491
-		worklib.blk_to_be_accessed_snoop_md:sv <0x69fcf091>
-			streams:   1, words:   790
-		worklib.cache_block_lv1_il:sv <0x2aa49d35>
-			streams:   1, words:   226
-		worklib.cache_block_lv1_il:sv <0x77eb0f99>
-			streams:   1, words:   226
-		worklib.cache_lv1_multicore:sv <0x2f7ec25e>
-			streams:   9, words:  1658
-		worklib.cache_lv1_unicore:sv <0x0bb3d483>
-			streams:   2, words:   707
-		worklib.cache_lv1_unicore:sv <0x4e0cceed>
-			streams:   2, words:   831
-		worklib.cache_wrapper_lv1_il:sv <0x28a1a198>
-			streams:   1, words:   104
-		worklib.cache_wrapper_lv1_il:sv <0x652f4552>
-			streams:   1, words:   104
-		worklib.cdns_assert2uvm_pkg:sv <0x578bb386>
-			streams:   3, words:  2224
-		worklib.cdns_uvm_pkg:sv <0x040e3ce1>
-			streams:   9, words:  5336
-		worklib.cdns_uvm_pkg:sv <0x5dae2d07>
-			streams: 136, words: 251567
-		worklib.cdns_uvm_pkg:sv <0x6bd3e18a>
-			streams:  28, words: 40052
-		worklib.cdns_uvm_pkg:sv <0x777b8019>
-			streams:  10, words:  7807
-		worklib.cdns_uvmapi:svp <0x0e7f9d74>
-			streams:  27, words: 32277
-		worklib.cpu_lv1_interface:sv <0x2b213e81>
-			streams:  36, words: 35148
-		worklib.cpu_lv1_interface:sv <0x3cd1f722>
-			streams:  36, words: 35148
-		worklib.cpu_pkg:sv <0x16af99b7>
-			streams:   0, words:     0
-		worklib.free_blk_md:sv <0x43aaf608>
-			streams:   5, words:  2003
-		worklib.free_blk_md:sv <0x574b8d82>
-			streams:   9, words:  2583
-		worklib.lrs_arbiter:sv <0x3ea90ce9>
-			streams:  25, words: 13344
-		worklib.lru_block_lv1:sv <0x09e8cd68>
-			streams:   2, words:  3250
-		worklib.lru_block_lv2:sv <0x421a3993>
-			streams:   2, words:  7597
-		worklib.main_func_lv1_dl:sv <0x2c889579>
-			streams:  65, words: 54423
-		worklib.main_func_lv1_dl:sv <0x6069fde0>
-			streams:  64, words: 54418
-		worklib.main_func_lv1_il:sv <0x30f9ef64>
-			streams:  24, words: 15433
-		worklib.main_func_lv1_il:sv <0x36164807>
-			streams:  24, words: 15391
-		worklib.main_func_lv2:sv <0x5d8a6910>
-			streams:  36, words: 24600
-		worklib.memory:sv <0x4b5c5027>
-			streams:   4, words:  2650
-		worklib.mesi_fsm_lv1:sv <0x01a6db6c>
-			streams:   2, words:  8552
-		worklib.system_bus_interface:sv <0x26470fab>
-			streams: 142, words: 137320
-		worklib.top:sv <0x131381fe>
-			streams:  27, words: 32124
-		worklib.top:sv <0x3f701968>
-			streams:  27, words: 33073
-		worklib.top:sv <0x653cbdb0>
-			streams: 171, words: 238932
-		worklib.uvm_pkg:sv <0x04244da2>
-			streams:   7, words:  2598
-		worklib.uvm_pkg:sv <0x043b2096>
-			streams:  17, words: 16104
-		worklib.uvm_pkg:sv <0x06d1a343>
-			streams:   9, words:  2577
-		worklib.uvm_pkg:sv <0x080a91a3>
-			streams:  25, words: 28242
-		worklib.uvm_pkg:sv <0x0c68bba4>
-			streams:  24, words: 62059
-		worklib.uvm_pkg:sv <0x1192fe11>
-			streams:   7, words:  1443
-		worklib.uvm_pkg:sv <0x16305592>
-			streams:  25, words: 33660
-		worklib.uvm_pkg:sv <0x183c470a>
-			streams:  22, words: 58686
-		worklib.uvm_pkg:sv <0x1a3188eb>
-			streams:  25, words: 57593
-		worklib.uvm_pkg:sv <0x1cdd7af4>
-			streams:  22, words: 17002
-		worklib.uvm_pkg:sv <0x1d73af74>
-			streams:  24, words: 20474
-		worklib.uvm_pkg:sv <0x1f8007ab>
-			streams:   7, words:  1877
-		worklib.uvm_pkg:sv <0x1fac8731>
-			streams:  23, words: 26026
-		worklib.uvm_pkg:sv <0x200371b2>
-			streams:  25, words: 56606
-		worklib.uvm_pkg:sv <0x216fee63>
-			streams:  24, words: 20474
-		worklib.uvm_pkg:sv <0x29b3818f>
-			streams:  16, words: 23184
-		worklib.uvm_pkg:sv <0x2b20c3bd>
-			streams:  27, words: 46301
-		worklib.uvm_pkg:sv <0x2ca84d2c>
-			streams: 110, words: 212359
-		worklib.uvm_pkg:sv <0x2e07f972>
-			streams:  26, words: 33289
-		worklib.uvm_pkg:sv <0x3618f7e0>
-			streams:  25, words: 28242
-		worklib.uvm_pkg:sv <0x38c67cc8>
-			streams:  24, words: 20474
-		worklib.uvm_pkg:sv <0x3ae0e166>
-			streams:  24, words: 20474
-		worklib.uvm_pkg:sv <0x3ec7f1e9>
-			streams: 4718, words: 8983424
-		worklib.uvm_pkg:sv <0x3f2a8138>
-			streams:  27, words: 40344
-		worklib.uvm_pkg:sv <0x3f41cd24>
-			streams:  36, words: 39863
-		worklib.uvm_pkg:sv <0x40655aa9>
-			streams:  71, words: 127859
-		worklib.uvm_pkg:sv <0x40973750>
-			streams:  25, words: 36644
-		worklib.uvm_pkg:sv <0x46c66c20>
-			streams:  25, words: 53467
-		worklib.uvm_pkg:sv <0x47d753a9>
-			streams:  29, words: 103778
-		worklib.uvm_pkg:sv <0x486fc1e2>
-			streams:  27, words: 38420
-		worklib.uvm_pkg:sv <0x49648bcf>
-			streams: 103, words: 160495
-		worklib.uvm_pkg:sv <0x4d027d20>
-			streams:   8, words:  6979
-		worklib.uvm_pkg:sv <0x4e98152a>
-			streams:   7, words:  2598
-		worklib.uvm_pkg:sv <0x50277ebc>
-			streams:  74, words: 246064
-		worklib.uvm_pkg:sv <0x52aec663>
-			streams: 310, words: 415012
-		worklib.uvm_pkg:sv <0x560246d0>
-			streams:   9, words:  4964
-		worklib.uvm_pkg:sv <0x566fd017>
-			streams:  25, words: 28242
-		worklib.uvm_pkg:sv <0x59e3d5a7>
-			streams:  25, words: 29565
-		worklib.uvm_pkg:sv <0x5a299069>
-			streams:  26, words: 36098
-		worklib.uvm_pkg:sv <0x5a72abc6>
-			streams:  25, words: 28242
-		worklib.uvm_pkg:sv <0x5cfa1294>
-			streams:  26, words: 49571
-		worklib.uvm_pkg:sv <0x5fac6ffb>
-			streams:  24, words: 29634
-		worklib.uvm_pkg:sv <0x64cec9f2>
-			streams:  25, words: 53535
-		worklib.uvm_pkg:sv <0x64ef2253>
-			streams:  27, words: 35698
-		worklib.uvm_pkg:sv <0x67a39760>
-			streams:   7, words:  6500
-		worklib.uvm_pkg:sv <0x684e3a68>
-			streams:   8, words:  7347
-		worklib.uvm_pkg:sv <0x68b699be>
-			streams:  27, words: 28290
-		worklib.uvm_pkg:sv <0x6a563246>
-			streams:  25, words: 59243
-		worklib.uvm_pkg:sv <0x711cd1b4>
-			streams:  70, words: 97998
-		worklib.uvm_pkg:sv <0x726a69c1>
-			streams:  28, words: 30542
-		worklib.uvm_pkg:sv <0x737ef573>
-			streams:  24, words: 54108
-		worklib.uvm_pkg:sv <0x78527758>
-			streams:  24, words: 100034
-		worklib.uvm_pkg:sv <0x7a91d97c>
-			streams:  27, words: 37610
-		worklib.uvm_pkg:sv <0x7b3cc21d>
-			streams:  24, words: 20474
-		worklib.uvm_pkg:sv <0x7c524f77>
-			streams:   7, words:  2598
-		worklib.uvm_pkg:sv <0x7ce6c66f>
-			streams:   7, words:  1443
-		worklib.uvm_pkg:sv <0x7f8a8c68>
-			streams:  25, words: 51787
-    integer i;
-            |
-ncelab: *W,COVUTA (../design/common/access_blk_proc_md.sv,31|12): Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory, and array of enum. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
-    wire [MESI_WID - 1 : 0] cache_mesi [ASSOC - 1 : 0];
-                                     |
-ncelab: *W,COVMDD (../design/common/access_blk_proc_md.sv,32|37): Toggle coverage for bit, logic, reg, wire, and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage on for these types specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
-	Building instance specific data structures.
-ncelab: *W,CGPIDF: Covergroup "per_instance" option , by default, is set as 0.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                       Instances  Unique
-		Modules:                     128      30
-		Interfaces:                    5       2
-		Verilog packages:              5       5
-		Resolved nets:                 0       2
-		Registers:                 16215   11046
-		Scalar wires:                343       -
-		Expanded wires:              726      29
-		Vectored wires:              450       -
-		Named events:                 76      57
-		Always blocks:               448     220
-		Initial blocks:              500     255
-		Parallel blocks:              30      31
-		Cont. assignments:           323      61
-		Pseudo assignments:           29      25
-		Assertions:                   74      47
-		Covergroup Instances:          0       2
-		SV Class declarations:       219     333
-		SV Class specializations:    429     429
-		Simulation timescale:        1ns
-	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	irun	15.20-s022: Exiting on Apr 15, 2020 at 23:08:19 CDT  (total: 00:00:06)
+  uvm_root top;
+             |
+ncelab: *E,CFUNST (/softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_globals.svh,117|13): Datatype unsupported in constant functions.
+ncelab: *F,INTERR: INTERNAL EXCEPTION
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	ncelab	15.20-s022
+  HOSTNAME: hera3.ece.tamu.edu
+  OPERATING SYSTEM: Linux 3.10.0-1062.12.1.el7.x86_64 #1 SMP Tue Feb 4 23:02:59 UTC 2020 x86_64
+  MESSAGE: sv_seghandler - trapno -1 addr(0x2546cc0)
+-----------------------------------------------------------------
+csi-ncelab - CSI: Cadence Support Investigation, sending details to /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/ncelab_40827.err
+irun: *E,ELBERR: Error during elaboration (status 255), exiting.
+TOOL:	irun	15.20-s022: Exiting on Apr 17, 2020 at 01:11:31 CDT  (total: 00:00:02)

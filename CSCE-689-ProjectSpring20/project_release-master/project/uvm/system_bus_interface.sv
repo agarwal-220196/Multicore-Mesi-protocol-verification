@@ -96,7 +96,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION7 : grant and snoop signals must go low only after cpu_rd goes low!!!DOUBTFUL
 	 property gnt_snoop_cpu_rd;
 	 @(posedge clk)
-		($fell(bus_lv1_lv2_gnt_snoop[0]) && $fell(bus_lv1_lv2_req_snoop[0]))|-> $past($fell(bus_rd));
+		($fell(bus_lv1_lv2_gnt_snoop) && $fell(bus_lv1_lv2_req_snoop))|-> $past($fell(bus_rd));
 	endproperty
 
 	assert_grant_snoop_bus_cpu_rd :  assert property (gnt_snoop_cpu_rd)
@@ -135,9 +135,9 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	`uvm_error("system_bus_interface",$sformatf("Assertion assert_onehot_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_snoop  not onehot0"))
 	
 //ASSERTION 12: onehot bus_lv1_lv2_gnt_lv2 also?----DOUBTFUL
-	assert_onehot_bus_lv1_lv2_gnt_lv2 : assert property (@(posedge clk) $onehot0(bus_lv1_lv2_gnt_lv2))
+/*	assert_onehot_bus_lv1_lv2_gnt_lv2 : assert property (@(posedge clk) $onehot0(bus_lv1_lv2_gnt_lv2))
 	else 
-	`uvm_error("system_bus_interface",$sformatf("Assertion assert_onehot_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_lv2  not onehot0"))
+*/	`uvm_error("system_bus_interface",$sformatf("Assertion assert_onehot_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_lv2  not onehot0"))
 	
 //DEFINING NEW PROPERTY FOR SIMULATENOUSLY HIGH GOING SIGNALS
 	property prop_simult_signal1_and_signal2(signal_1,signal_2);
@@ -159,8 +159,8 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 
 //ASSERTION 15: lv2_rd should go low 1 cycle after data_in_bus_lv1_lv2 goes low , posedge clk iff lv2_rd
 	property checking_sequence_type_1;
-		@(posedge clk iff lv2_rd)
-			$fell(data_in_bus_lv1_lv2)|=>$fell(lv2_rd);
+		@(posedge clk )
+		   lv2_rd |-> ##[0:$] $rose(data_in_bus_lv1_lv2) ;
 	endproperty
 	assert_chceking_lv2_rd_follow_data_in_bus_lv1_lv2: assert property(checking_sequence_type_1)
 	else	
@@ -178,7 +178,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	else	
 		`uvm_error("system_bus_interface",$sformatf("Assertion assert_checking_sequence_type_lv2_wr Failed: lv2_rd did not get deasserted after data_in_bus_lv1_lv2 "))
 
-/*//ASSERTION 17: data_bus_lv1_lv2 and addr_bus_lv1_lv2 should not be invalid when data_in_bus_lv1_lv2 is high or rising?
+//ASSERTION 17: data_bus_lv1_lv2 and addr_bus_lv1_lv2 should not be invalid when data_in_bus_lv1_lv2 is high or rising?
 	property address_data_validity_data_in_bus_lv1_lv2;
 		@(posedge clk )
 			(data_in_bus_lv1_lv2) |-> (addr_bus_lv1_lv2 !== 32'hz && data_bus_lv1_lv2!== 32'hx );
@@ -186,7 +186,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_valid_address_data_validity_data_in_bus_lv1_lv2: assert property(address_data_validity_data_in_bus_lv1_lv2)
 	else	
 		`uvm_error("system_bus_interface",$sformatf("Assertion address_data_validity_data_in_bus_lv1_lv2 Failed: Address not valid!"))
-*/
+
 //ASSERTION 18: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_req_proc go low together ----IF ASSERTION FAILS , TRY WITH !bus_lv1_lv2_req_proc|->!bus_lv1_lv2_gnt_proc
 	property bus_lv1_lv2_req_proc_and_grant_low;
 	@(posedge clk iff bus_lv1_lv2_gnt_proc)
@@ -252,7 +252,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 24: for bus_rd when bus_lv1_lv2_gnt_snoop is asserted, then shared should become high after sometime
 	property signal_shared_bus_rd_sequence;
 	@(posedge clk iff bus_rd)
-		(bus_lv1_lv2_gnt_snoop) |=> ##[0:$] $rose(shared); //check this code
+		(bus_lv1_lv2_gnt_snoop) |=>  $rose(shared); //check this code
 	endproperty
 	
 	assert_signal_shared_bus_rd_sequence :  assert property(signal_shared_bus_rd_sequence)
@@ -333,7 +333,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 
 //ASSERTION 32: bus_rdx means that invalid asserted (copies will be invalidated) --------NOTE OPPOSITE IS NOT TRUE!
 	property invalidate_if_bus_rdx;
-	@(posedge clk)
+	@(posedge clk iff ( shared ))
 		bus_rdx |=> ##[0:$] invalidate; //------------------SHOULD THE BOUND ON NUMBER OF CYCLES BE DEFINED-------------------------
 	endproperty
 	
@@ -355,7 +355,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 34: for cpu_wr, once bus_lv1_lv2_gnt_proc is asserted |=> cpu_wr and bus_rdx made high - DOUBTFUL
 	property bus_rdx_then_gnt_proc;
 	@(posedge clk)
-		bus_rdx |-> bus_lv1_lv2_gnt_proc ;
+		bus_rdx |-> ##[0:$]$past( bus_lv1_lv2_gnt_proc) ;
 	endproperty
 	
 	assert_bus_rdx_then_gnt_proc :  assert property(bus_rdx_then_gnt_proc)
@@ -370,7 +370,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 36: bus_lv1_lv2_gnt_lv2 should not be high without bus_lv1_lv2_gnt_proc
 	property bus_lv1_lv2_gnt_lv2_then_bus_lv1_lv2_gnt_proc;
 	@(posedge clk)
-		bus_lv1_lv2_gnt_lv2 |-> bus_lv1_lv2_gnt_proc ;
+		bus_lv1_lv2_gnt_lv2 |-> ##[0:$] $past( bus_lv1_lv2_gnt_proc) ;
 	endproperty
 	
 	assert_bus_lv1_lv2_gnt_lv2_then_bus_lv1_lv2_gnt_proc :  assert property(bus_lv1_lv2_gnt_lv2_then_bus_lv1_lv2_gnt_proc)
