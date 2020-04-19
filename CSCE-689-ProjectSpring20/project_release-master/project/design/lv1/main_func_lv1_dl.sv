@@ -78,8 +78,8 @@ module main_func_lv1_dl #(
                          );
 
     parameter INVALID   = 2'b00;
-    parameter EXCLUSIVE = 2'b01;
-    parameter SHARED    = 2'b10;
+    parameter EXCLUSIVE = 2'b10;
+    parameter SHARED    = 2'b01;
     parameter MODIFIED  = 2'b11;
 
     reg [CACHE_DATA_WID - 1     : 0] cache_var        [0 : CACHE_DEPTH - 1];
