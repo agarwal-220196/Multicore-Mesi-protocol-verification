@@ -9,7 +9,6 @@
 // 2016/12/01  1.0     Initial Release
 // 2016/12/02  2.0     Added CPU MESI and LRU interface
 //=====================================================================
-//core to be changed
 
 `define INST_TOP_CORE inst_cache_lv1_multicore
 `define NUM_CORE 4
