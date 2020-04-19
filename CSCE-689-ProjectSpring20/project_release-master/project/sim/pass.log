@@ -1,5 +1,5 @@
 irun: 15.20-s022: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	irun	15.20-s022: Started on Apr 18, 2020 at 20:50:57 CDT
+TOOL:	irun	15.20-s022: Started on Apr 18, 2020 at 00:02:33 CDT
 irun
 	-f sim_cmd_line.f
 		+access+rwc
@@ -11,7 +11,7 @@ irun
 		-input ../uvm/waves.tcl
 		-uvmhome /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv
 		+UVM_VERBOSITY=UVM_LOW
-	+UVM_TESTNAME=w0_r1_w2_same_addr_dcache
+	+UVM_TESTNAME=r0_w1_w1_same_addr_dcache
 
    User defined plus("+") options:
 	+UVM_VERBOSITY=UVM_LOW
@@ -88,51 +88,28 @@ CDNS-UVM-1.1d (15.20-s022)
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
 UVM_INFO ../uvm/top.sv(141) @ 0: reporter [TOP] Starting UVM test
-UVM_INFO @ 0: reporter [RNTST] Running test w0_r1_w2_same_addr_dcache...
+UVM_INFO @ 0: reporter [RNTST] Running test r0_w1_w1_same_addr_dcache...
 UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 -----------------------------------------------------------------------
 Name                        Type                       Size  Value     
 -----------------------------------------------------------------------
-uvm_test_top                w0_r1_w2_same_addr_dcache  -     @2838     
-  tb                        env                        -     @2948     
-    cpu[0]                  cpu_agent_c                -     @2986     
-      driver                cpu_driver_c               -     @4796     
-        rsp_port            uvm_analysis_port          -     @4947     
+uvm_test_top                r0_w1_w1_same_addr_dcache  -     @2831     
+  tb                        env                        -     @2941     
+    cpu[0]                  cpu_agent_c                -     @2979     
+      driver                cpu_driver_c               -     @4789     
+        rsp_port            uvm_analysis_port          -     @4940     
           recording_detail  integral                   32    'd1       
-        seq_item_port       uvm_seq_item_pull_port     -     @4898     
-          recording_detail  integral                   32    'd1       
-        recording_detail    integral                   32    'd1       
-      monitor               cpu_monitor_c              -     @4077     
-        mon_out             uvm_analysis_port          -     @4179     
+        seq_item_port       uvm_seq_item_pull_port     -     @4891     
           recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-      sequencer             cpu_sequencer_c            -     @4211     
-        rsp_export          uvm_analysis_export        -     @4267     
-          recording_detail  integral                   32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp      -     @4817     
+      monitor               cpu_monitor_c              -     @4070     
+        mon_out             uvm_analysis_port          -     @4172     
           recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-        arbitration_queue   array                      0     -         
-        lock_queue          array                      0     -         
-        num_last_reqs       integral                   32    'd1       
-        num_last_rsps       integral                   32    'd1       
-      is_active             uvm_active_passive_enum    1     UVM_ACTIVE
-      recording_detail      integral                   32    'd1       
-    cpu[1]                  cpu_agent_c                -     @2984     
-      driver                cpu_driver_c               -     @5657     
-        rsp_port            uvm_analysis_port          -     @5802     
+      sequencer             cpu_sequencer_c            -     @4204     
+        rsp_export          uvm_analysis_export        -     @4260     
           recording_detail  integral                   32    'd1       
-        seq_item_port       uvm_seq_item_pull_port     -     @5754     
-          recording_detail  integral                   32    'd1       
-        recording_detail    integral                   32    'd1       
-      monitor               cpu_monitor_c              -     @5003     
-        mon_out             uvm_analysis_port          -     @5051     
-          recording_detail  integral                   32    'd1       
-        recording_detail    integral                   32    'd1       
-      sequencer             cpu_sequencer_c            -     @5081     
-        rsp_export          uvm_analysis_export        -     @5137     
-          recording_detail  integral                   32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp      -     @5677     
+        seq_item_export     uvm_seq_item_pull_imp      -     @4810     
           recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
         arbitration_queue   array                      0     -         
@@ -141,44 +118,21 @@ uvm_test_top                w0_r1_w2_same_addr_dcache  -     @2838
         num_last_rsps       integral                   32    'd1       
       is_active             uvm_active_passive_enum    1     UVM_ACTIVE
       recording_detail      integral                   32    'd1       
-    cpu[2]                  cpu_agent_c                -     @3016     
-      driver                cpu_driver_c               -     @6505     
-        rsp_port            uvm_analysis_port          -     @6650     
+    cpu[1]                  cpu_agent_c                -     @2977     
+      driver                cpu_driver_c               -     @5650     
+        rsp_port            uvm_analysis_port          -     @5795     
           recording_detail  integral                   32    'd1       
-        seq_item_port       uvm_seq_item_pull_port     -     @6602     
-          recording_detail  integral                   32    'd1       
-        recording_detail    integral                   32    'd1       
-      monitor               cpu_monitor_c              -     @5851     
-        mon_out             uvm_analysis_port          -     @5899     
+        seq_item_port       uvm_seq_item_pull_port     -     @5747     
           recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-      sequencer             cpu_sequencer_c            -     @5929     
-        rsp_export          uvm_analysis_export        -     @5985     
-          recording_detail  integral                   32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp      -     @6525     
+      monitor               cpu_monitor_c              -     @4996     
+        mon_out             uvm_analysis_port          -     @5044     
           recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-        arbitration_queue   array                      0     -         
-        lock_queue          array                      0     -         
-        num_last_reqs       integral                   32    'd1       
-        num_last_rsps       integral                   32    'd1       
-      is_active             uvm_active_passive_enum    1     UVM_ACTIVE
-      recording_detail      integral                   32    'd1       
-    cpu[3]                  cpu_agent_c                -     @3046     
-      driver                cpu_driver_c               -     @7353     
-        rsp_port            uvm_analysis_port          -     @7498     
+      sequencer             cpu_sequencer_c            -     @5074     
+        rsp_export          uvm_analysis_export        -     @5130     
           recording_detail  integral                   32    'd1       
-        seq_item_port       uvm_seq_item_pull_port     -     @7450     
-          recording_detail  integral                   32    'd1       
-        recording_detail    integral                   32    'd1       
-      monitor               cpu_monitor_c              -     @6699     
-        mon_out             uvm_analysis_port          -     @6747     
-          recording_detail  integral                   32    'd1       
-        recording_detail    integral                   32    'd1       
-      sequencer             cpu_sequencer_c            -     @6777     
-        rsp_export          uvm_analysis_export        -     @6833     
-          recording_detail  integral                   32    'd1       
-        seq_item_export     uvm_seq_item_pull_imp      -     @7373     
+        seq_item_export     uvm_seq_item_pull_imp      -     @5670     
           recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
         arbitration_queue   array                      0     -         
@@ -187,26 +141,72 @@ uvm_test_top                w0_r1_w2_same_addr_dcache  -     @2838
         num_last_rsps       integral                   32    'd1       
       is_active             uvm_active_passive_enum    1     UVM_ACTIVE
       recording_detail      integral                   32    'd1       
-    sb                      cache_scoreboard_c         -     @3778     
-      sb_cpu0m              uvm_analysis_imp_cpu0m     -     @3895     
+    cpu[2]                  cpu_agent_c                -     @3009     
+      driver                cpu_driver_c               -     @6498     
+        rsp_port            uvm_analysis_port          -     @6643     
+          recording_detail  integral                   32    'd1       
+        seq_item_port       uvm_seq_item_pull_port     -     @6595     
+          recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-      sb_cpu1m              uvm_analysis_imp_cpu1m     -     @3946     
+      monitor               cpu_monitor_c              -     @5844     
+        mon_out             uvm_analysis_port          -     @5892     
+          recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-      sb_cpu2m              uvm_analysis_imp_cpu2m     -     @3995     
+      sequencer             cpu_sequencer_c            -     @5922     
+        rsp_export          uvm_analysis_export        -     @5978     
+          recording_detail  integral                   32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp      -     @6518     
+          recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-      sb_cpu3m              uvm_analysis_imp_cpu3m     -     @4044     
+        arbitration_queue   array                      0     -         
+        lock_queue          array                      0     -         
+        num_last_reqs       integral                   32    'd1       
+        num_last_rsps       integral                   32    'd1       
+      is_active             uvm_active_passive_enum    1     UVM_ACTIVE
+      recording_detail      integral                   32    'd1       
+    cpu[3]                  cpu_agent_c                -     @3039     
+      driver                cpu_driver_c               -     @7346     
+        rsp_port            uvm_analysis_port          -     @7491     
+          recording_detail  integral                   32    'd1       
+        seq_item_port       uvm_seq_item_pull_port     -     @7443     
+          recording_detail  integral                   32    'd1       
         recording_detail    integral                   32    'd1       
-      sb_sbus               uvm_analysis_imp_sbus      -     @4093     
+      monitor               cpu_monitor_c              -     @6692     
+        mon_out             uvm_analysis_port          -     @6740     
+          recording_detail  integral                   32    'd1       
+        recording_detail    integral                   32    'd1       
+      sequencer             cpu_sequencer_c            -     @6770     
+        rsp_export          uvm_analysis_export        -     @6826     
+          recording_detail  integral                   32    'd1       
+        seq_item_export     uvm_seq_item_pull_imp      -     @7366     
+          recording_detail  integral                   32    'd1       
+        recording_detail    integral                   32    'd1       
+        arbitration_queue   array                      0     -         
+        lock_queue          array                      0     -         
+        num_last_reqs       integral                   32    'd1       
+        num_last_rsps       integral                   32    'd1       
+      is_active             uvm_active_passive_enum    1     UVM_ACTIVE
+      recording_detail      integral                   32    'd1       
+    sb                      cache_scoreboard_c         -     @3771     
+      sb_cpu0m              uvm_analysis_imp_cpu0m     -     @3888     
+        recording_detail    integral                   32    'd1       
+      sb_cpu1m              uvm_analysis_imp_cpu1m     -     @3939     
+        recording_detail    integral                   32    'd1       
+      sb_cpu2m              uvm_analysis_imp_cpu2m     -     @3988     
+        recording_detail    integral                   32    'd1       
+      sb_cpu3m              uvm_analysis_imp_cpu3m     -     @4037     
+        recording_detail    integral                   32    'd1       
+      sb_sbus               uvm_analysis_imp_sbus      -     @4086     
         recording_detail    integral                   32    'd1       
       recording_detail      integral                   32    'd1       
-    sbus_monitor            system_bus_monitor_c       -     @3694     
-      sbus_out              uvm_analysis_port          -     @3796     
+    sbus_monitor            system_bus_monitor_c       -     @3687     
+      sbus_out              uvm_analysis_port          -     @3789     
         recording_detail    integral                   32    'd1       
       recording_detail      integral                   32    'd1       
-    vsequencer              virtual_sequencer_c        -     @3076     
-      rsp_export            uvm_analysis_export        -     @3165     
+    vsequencer              virtual_sequencer_c        -     @3069     
+      rsp_export            uvm_analysis_export        -     @3158     
         recording_detail    integral                   32    'd1       
-      seq_item_export       uvm_seq_item_pull_imp      -     @3715     
+      seq_item_export       uvm_seq_item_pull_imp      -     @3708     
         recording_detail    integral                   32    'd1       
       recording_detail      integral                   32    'd1       
       arbitration_queue     array                      0     -         
@@ -216,7 +216,7 @@ uvm_test_top                w0_r1_w2_same_addr_dcache  -     @2838
     recording_detail        integral                   32    'd1       
 -----------------------------------------------------------------------
 
-UVM_INFO ../test/w0_r1_w2_same_addr_dcache.sv(26) @ 0: uvm_test_top [w0_r1_w2_same_addr_dcache] Executing w0_r1_w2_same_addr_dcache test
+UVM_INFO ../test/r0_w1_w1_same_addr_dcache.sv(26) @ 0: uvm_test_top [r0_w1_w1_same_addr_dcache] Executing r0_w1_w1_same_addr_dcache test
 SDI/Verilog Transaction Recording Facility Version 15.20-s022
 UVM_INFO ../uvm/system_bus_monitor_c.sv(95) @ 0: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] RUN Phase
 UVM_INFO ../uvm/cache_scoreboard_c.sv(66) @ 0: uvm_test_top.tb.sb [cache_scoreboard_c] RUN Phase
@@ -228,53 +228,49 @@ UVM_INFO ../uvm/cpu_monitor_c.sv(56) @ 0: uvm_test_top.tb.cpu[1].monitor [cpu_mo
 UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] RUN Phase
 UVM_INFO ../uvm/cpu_monitor_c.sv(56) @ 0: uvm_test_top.tb.cpu[0].monitor [cpu_monitor_c] RUN Phase
 UVM_INFO ../uvm/cpu_driver_c.sv(48) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] RUN Phase
-UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@w0_r1_w2_same_addr_dcache_seq [w0_r1_w2_same_addr_dcache_seq] raise_objection
-UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@w0_r1_w2_same_addr_dcache_seq [w0_r1_w2_same_addr_dcache_seq] Main Processor=1	SP1=3	SP2=2
+UVM_INFO ../uvm/virtual_seqs.sv(30) @ 0: uvm_test_top.tb.vsequencer@@r0_w1_w1_same_addr_dcache_seq [r0_w1_w1_same_addr_dcache_seq] raise_objection
+UVM_INFO ../uvm/virtual_seqs.sv(31) @ 0: uvm_test_top.tb.vsequencer@@r0_w1_w1_same_addr_dcache_seq [r0_w1_w1_same_addr_dcache_seq] Main Processor=3	SP1=1	SP2=2
 UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 0: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
 ----------------------------------------------------------------------------------------------------------------
 Name                           Type               Size  Value                                                   
 ----------------------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7976                                                   
-  data                         integral           32    'h40000004                                              
+trans                          cpu_transaction_c  -     @7969                                                   
+  data                         integral           32    'h5555aaaa                                              
   address                      integral           32    'haabbccdd                                              
-  request_type                 request_t          1     WRITE_REQ                                               
+  request_type                 request_t          1     READ_REQ                                                
   access_cache_type            access_cache_t     1     DCACHE_ACC                                              
   begin_time                   time               64    0                                                       
   depth                        int                32    'd2                                                     
-  parent sequence (name)       string             29    w0_r1_w2_same_addr_dcache_seq                           
-  parent sequence (full name)  string             56    uvm_test_top.tb.vsequencer.w0_r1_w2_same_addr_dcache_seq
+  parent sequence (name)       string             29    r0_w1_w1_same_addr_dcache_seq                           
+  parent sequence (full name)  string             56    uvm_test_top.tb.vsequencer.r0_w1_w1_same_addr_dcache_seq
   sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer                        
 ----------------------------------------------------------------------------------------------------------------
 
-			$fell(cpu_wr)|=>$fell(cpu_wr_done);
-			                    |
-ncsim: *E,ASRTST (../uvm/cpu_lv1_interface.sv,103): (time 85 NS) Assertion top.inst_cpu_lv1_if[0].assert_chceking_cpu_wr_follow_cpu_wr_done has failed (2 cycles, starting 75 NS)
-UVM_ERROR ../uvm/cpu_lv1_interface.sv(105) @ 85: reporter [cpu_lv1_interface] Assertion 7 checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other 
-UVM_INFO ../uvm/system_bus_monitor_c.sv(104) @ 95: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
-UVM_INFO ../uvm/system_bus_monitor_c.sv(222) @ 165: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] BUS_RDX successful
-UVM_INFO ../uvm/system_bus_monitor_c.sv(241) @ 175: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
-UVM_INFO ../uvm/cache_scoreboard_c.sv(515) @ 195: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU0:
+UVM_INFO ../uvm/system_bus_monitor_c.sv(104) @ 55: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
+UVM_INFO ../uvm/system_bus_monitor_c.sv(166) @ 125: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Bus read successful
+UVM_INFO ../uvm/system_bus_monitor_c.sv(241) @ 135: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
+UVM_INFO ../uvm/cache_scoreboard_c.sv(515) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU0:
 --------------------------------------------------
 Name            Type              Size  Value     
 --------------------------------------------------
-packet          cpu_mon_packet_c  -     @7887     
-  dat           integral          32    'h40000004
+packet          cpu_mon_packet_c  -     @7880     
+  dat           integral          32    'h5555aaaa
   address       integral          32    'haabbccdd
   num_cycles    integral          32    'h0       
   illegal       integral          1     'h0       
-  request_type  request_t         1     WRITE_REQ 
+  request_type  request_t         1     READ_REQ  
   addr_type     addr_t            32    DCACHE    
 --------------------------------------------------
 
-UVM_INFO ../uvm/cache_scoreboard_c.sv(274) @ 195: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU0
-WRITE Request
-UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 195: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
-UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 195: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
+UVM_INFO ../uvm/cache_scoreboard_c.sv(293) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU0
+UVM_INFO ../uvm/cache_scoreboard_c.sv(295) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] Data match!!! expected = 5555aaaa received = 5555aaaa
+UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
+UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 155: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
 -------------------------------------------------------------
 Name                         Type            Size  Value     
 -------------------------------------------------------------
-s_packet                     sbus_packet_c   -     @7891     
-  bus_req_type               bus_req_t       32    BUS_RDX   
+s_packet                     sbus_packet_c   -     @7884     
+  bus_req_type               bus_req_t       32    BUS_RD    
   bus_req_proc_num           bus_req_proc_t  32    REQ_PROC0 
   req_address                integral        32    'haabbccdc
   bus_req_snoop              integral        4     'h0       
@@ -290,67 +286,32 @@ s_packet                     sbus_packet_c   -     @7891
   proc_evict_dirty_blk_flag  integral        1     'h0       
 -------------------------------------------------------------
 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 215: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 215: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Input Data to Send:
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 175: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 175: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
 ----------------------------------------------------------------------------------------------------------------
 Name                           Type               Size  Value                                                   
 ----------------------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7794                                                   
-  data                         integral           32    'h5555aaaa                                              
-  address                      integral           32    'haabbccdd                                              
-  request_type                 request_t          1     READ_REQ                                                
-  access_cache_type            access_cache_t     1     DCACHE_ACC                                              
-  begin_time                   time               64    215                                                     
-  depth                        int                32    'd2                                                     
-  parent sequence (name)       string             29    w0_r1_w2_same_addr_dcache_seq                           
-  parent sequence (full name)  string             56    uvm_test_top.tb.vsequencer.w0_r1_w2_same_addr_dcache_seq
-  sequencer                    string             32    uvm_test_top.tb.cpu[1].sequencer                        
-----------------------------------------------------------------------------------------------------------------
-
-			$fell(cpu_wr)|=>$fell(cpu_wr_done);
-			                    |
-ncsim: *E,ASRTST (../uvm/cpu_lv1_interface.sv,103): (time 275 NS) Assertion top.inst_cpu_lv1_if[1].assert_chceking_cpu_wr_follow_cpu_wr_done has failed (2 cycles, starting 265 NS)
-UVM_ERROR ../uvm/cpu_lv1_interface.sv(105) @ 275: reporter [cpu_lv1_interface] Assertion 7 checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 1395: uvm_test_top.tb.cpu[1].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 1395: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Input Data to Send:
-----------------------------------------------------------------------------------------------------------------
-Name                           Type               Size  Value                                                   
-----------------------------------------------------------------------------------------------------------------
-trans                          cpu_transaction_c  -     @7839                                                   
-  data                         integral           32    'h41000004                                              
+trans                          cpu_transaction_c  -     @7786                                                   
+  data                         integral           32    'h40000004                                              
   address                      integral           32    'haabbccdd                                              
   request_type                 request_t          1     WRITE_REQ                                               
   access_cache_type            access_cache_t     1     DCACHE_ACC                                              
-  begin_time                   time               64    1395                                                    
+  begin_time                   time               64    175                                                     
   depth                        int                32    'd2                                                     
-  parent sequence (name)       string             29    w0_r1_w2_same_addr_dcache_seq                           
-  parent sequence (full name)  string             56    uvm_test_top.tb.vsequencer.w0_r1_w2_same_addr_dcache_seq
-  sequencer                    string             32    uvm_test_top.tb.cpu[2].sequencer                        
+  parent sequence (name)       string             29    r0_w1_w1_same_addr_dcache_seq                           
+  parent sequence (full name)  string             56    uvm_test_top.tb.vsequencer.r0_w1_w1_same_addr_dcache_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer                        
 ----------------------------------------------------------------------------------------------------------------
 
-			$fell(cpu_wr)|=>$fell(cpu_wr_done);
-			                    |
-ncsim: *E,ASRTST (../uvm/cpu_lv1_interface.sv,103): (time 1615 NS) Assertion top.inst_cpu_lv1_if[2].assert_chceking_cpu_wr_follow_cpu_wr_done has failed (2 cycles, starting 1605 NS)
-UVM_ERROR ../uvm/cpu_lv1_interface.sv(105) @ 1615: reporter [cpu_lv1_interface] Assertion 7 checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other 
-UVM_INFO ../uvm/system_bus_monitor_c.sv(104) @ 1625: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
-ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,279): (time 1655 NS) Assertion top.inst_system_bus_if.assert_snoop_or_lv2_onehot has failed 
-ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,397): (time 1655 NS) Assertion top.inst_system_bus_if.assert_snoop_high_after_shared_only has failed 
-UVM_ERROR ../uvm/system_bus_interface.sv(281) @ 1655: reporter [system_bus_interface] Assertion 26 snoop_or_lv2_onehot Failed: cp_in_cache and bus_lv1_lv2_req_lv2 cannot be asserted at the same time
-UVM_ERROR ../uvm/system_bus_interface.sv(399) @ 1655: reporter [system_bus_interface] Assertion 38 snoop_high_after_shared_only Failed: data not shared is being provided with some other cache 
-ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,155): (time 1665 NS) Assertion top.inst_system_bus_if.assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop has failed 
-UVM_ERROR ../uvm/system_bus_interface.sv(157) @ 1665: reporter [system_bus_interface] Assertion 14 assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_gnt_snoop asserted simultaneously
-ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,298): (time 1675 NS) Assertion top.inst_system_bus_if.assert_simult_lv2_rd_and_lv2_wr has failed 
-UVM_ERROR ../uvm/system_bus_interface.sv(300) @ 1675: reporter [system_bus_interface] Assertion 28 assert_simult_lv2_rd_and_lv2_wr Failed: lv2_rd and lv2_wr asserted simultaneously
-ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,102): (time 1705 NS) Assertion top.inst_system_bus_if.assert_grant_snoop_bus_cpu_rd has failed 
-UVM_ERROR ../uvm/system_bus_interface.sv(104) @ 1705: reporter [system_bus_interface] Assertion 7 assert_grant_snoop_bus_cpu_rd Failed: gnt and snoop behaviour to be checked
-UVM_INFO ../uvm/system_bus_monitor_c.sv(222) @ 1725: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] BUS_RDX successful
-UVM_INFO ../uvm/system_bus_monitor_c.sv(241) @ 1735: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
-UVM_INFO ../uvm/cache_scoreboard_c.sv(531) @ 1755: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU2:
+UVM_INFO ../uvm/system_bus_monitor_c.sv(104) @ 215: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet creation triggered
+UVM_INFO ../uvm/system_bus_monitor_c.sv(206) @ 235: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] INVALIDATE successful
+UVM_INFO ../uvm/system_bus_monitor_c.sv(241) @ 245: uvm_test_top.tb.sbus_monitor [system_bus_monitor_c] Packet to be written
+UVM_INFO ../uvm/cache_scoreboard_c.sv(515) @ 255: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU0:
 --------------------------------------------------
 Name            Type              Size  Value     
 --------------------------------------------------
-packet          cpu_mon_packet_c  -     @7755     
-  dat           integral          32    'h41000004
+packet          cpu_mon_packet_c  -     @7840     
+  dat           integral          32    'h40000004
   address       integral          32    'haabbccdd
   num_cycles    integral          32    'h0       
   illegal       integral          1     'h0       
@@ -358,23 +319,23 @@ packet          cpu_mon_packet_c  -     @7755
   addr_type     addr_t            32    DCACHE    
 --------------------------------------------------
 
-UVM_INFO ../uvm/cache_scoreboard_c.sv(274) @ 1755: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU2
+UVM_INFO ../uvm/cache_scoreboard_c.sv(274) @ 255: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU0
 WRITE Request
-UVM_INFO ../uvm/cache_scoreboard_c.sv(430) @ 1755: uvm_test_top.tb.sb [cache_scoreboard_c] System bus activity matched for this request
-UVM_INFO ../uvm/cache_scoreboard_c.sv(431) @ 1755: uvm_test_top.tb.sb [cache_scoreboard_c] Expected & Received SBUS Packet 
+UVM_ERROR ../uvm/cache_scoreboard_c.sv(419) @ 255: uvm_test_top.tb.sb [cache_scoreboard_c] Additional activity is observed on the system bus
+UVM_INFO ../uvm/cache_scoreboard_c.sv(421) @ 255: uvm_test_top.tb.sb [cache_scoreboard_c] Received SBUS Packet 
 -------------------------------------------------------------
 Name                         Type            Size  Value     
 -------------------------------------------------------------
-s_packet                     sbus_packet_c   -     @7880     
-  bus_req_type               bus_req_t       32    BUS_RDX   
-  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC2 
+s_packet                     sbus_packet_c   -     @7888     
+  bus_req_type               bus_req_t       32    INVALIDATE
+  bus_req_proc_num           bus_req_proc_t  32    REQ_PROC0 
   req_address                integral        32    'haabbccdc
-  bus_req_snoop              integral        4     'h1       
-  req_serviced_by            serv_by_t       32    SERV_L2   
-  rd_data                    integral        32    'h40000004
-  wr_data_snoop              integral        32    'h40000004
-  snoop_wr_req_flag          integral        1     'h1       
-  cp_in_cache                integral        1     'h1       
+  bus_req_snoop              integral        4     'h0       
+  req_serviced_by            serv_by_t       32    SERV_NONE 
+  rd_data                    integral        32    'h0       
+  wr_data_snoop              integral        32    'h0       
+  snoop_wr_req_flag          integral        1     'h0       
+  cp_in_cache                integral        1     'h0       
   shared                     integral        1     'h0       
   service_time               integral        32    'h0       
   proc_evict_dirty_blk_addr  integral        32    'h0       
@@ -382,15 +343,55 @@ s_packet                     sbus_packet_c   -     @7880
   proc_evict_dirty_blk_flag  integral        1     'h0       
 -------------------------------------------------------------
 
-UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 1775: uvm_test_top.tb.cpu[2].driver [cpu_driver_c] Ended Driving transaction
-UVM_INFO ../uvm/virtual_seqs.sv(38) @ 1775: uvm_test_top.tb.vsequencer@@w0_r1_w2_same_addr_dcache_seq [w0_r1_w2_same_addr_dcache_seq] drop_objection
-UVM_INFO /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 1775: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+		invalidate |=> all_invalidation_done ##1 !(all_invalidation_done) && (invalidate==1'bz) ;
+		                                                                   |
+ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,351): (time 255 NS) Assertion top.inst_system_bus_if.assert_valid_invalidate_sequence has failed (3 cycles, starting 235 NS)
+		invalidate |=> all_invalidation_done ##1 !(all_invalidation_done) && (invalidate==1'bz) ;
+		                                   |
+ncsim: *E,ASRTST (../uvm/system_bus_interface.sv,351): (time 255 NS) Assertion top.inst_system_bus_if.assert_valid_invalidate_sequence has failed (2 cycles, starting 245 NS)
+UVM_ERROR ../uvm/system_bus_interface.sv(353) @ 255: reporter [system_bus_interface] Assertion 33 valid_invalidate_sequence Failed: invalidation sequence!
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 275: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/cpu_driver_c.sv(66) @ 275: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Input Data to Send:
+----------------------------------------------------------------------------------------------------------------
+Name                           Type               Size  Value                                                   
+----------------------------------------------------------------------------------------------------------------
+trans                          cpu_transaction_c  -     @7757                                                   
+  data                         integral           32    'h5555aaaa                                              
+  address                      integral           32    'haabbccdd                                              
+  request_type                 request_t          1     READ_REQ                                                
+  access_cache_type            access_cache_t     1     DCACHE_ACC                                              
+  begin_time                   time               64    275                                                     
+  depth                        int                32    'd2                                                     
+  parent sequence (name)       string             29    r0_w1_w1_same_addr_dcache_seq                           
+  parent sequence (full name)  string             56    uvm_test_top.tb.vsequencer.r0_w1_w1_same_addr_dcache_seq
+  sequencer                    string             32    uvm_test_top.tb.cpu[0].sequencer                        
+----------------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../uvm/cache_scoreboard_c.sv(515) @ 305: uvm_test_top.tb.sb [cache_scoreboard_c] cpu_mon_packet from CPU0:
+--------------------------------------------------
+Name            Type              Size  Value     
+--------------------------------------------------
+packet          cpu_mon_packet_c  -     @7819     
+  dat           integral          32    'h40000004
+  address       integral          32    'haabbccdd
+  num_cycles    integral          32    'h0       
+  illegal       integral          1     'h0       
+  request_type  request_t         1     READ_REQ  
+  addr_type     addr_t            32    DCACHE    
+--------------------------------------------------
+
+UVM_INFO ../uvm/cache_scoreboard_c.sv(293) @ 305: uvm_test_top.tb.sb [cache_scoreboard_c] CHECK_DATA CPU0
+UVM_INFO ../uvm/cache_scoreboard_c.sv(295) @ 305: uvm_test_top.tb.sb [cache_scoreboard_c] Data match!!! expected = 40000004 received = 40000004
+UVM_INFO ../uvm/cache_scoreboard_c.sv(424) @ 305: uvm_test_top.tb.sb [cache_scoreboard_c] No System bus activity expected!! match for this request
+UVM_INFO ../uvm/cpu_driver_c.sv(83) @ 325: uvm_test_top.tb.cpu[0].driver [cpu_driver_c] Ended Driving transaction
+UVM_INFO ../uvm/virtual_seqs.sv(38) @ 325: uvm_test_top.tb.vsequencer@@r0_w1_w1_same_addr_dcache_seq [r0_w1_w1_same_addr_dcache_seq] drop_objection
+UVM_INFO /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 325: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 ---Test Summary---
 
 ---Final Test Status---
 
 Test FAIL
-ncsim: *E,ERRSEV (../test/base_test.sv,65): (time 1775 NS).
+ncsim: *E,ERRSEV (../test/base_test.sv,65): (time 325 NS).
 top.base_test.report_phase
  _____ _    ___ _
 |  ___/ \  |_ _| |
@@ -412,24 +413,23 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   38
+UVM_INFO :   42
 UVM_WARNING :    0
-UVM_ERROR :    8
+UVM_ERROR :    2
 UVM_FATAL :    0
 ** Report counts by id
 [RNTST]     1
 [TEST_DONE]     1
 [TOP]     1
 [UVMTOP]     1
-[cache_scoreboard_c]     9
+[cache_scoreboard_c]    14
 [cpu_driver_c]    10
-[cpu_lv1_interface]     3
 [cpu_monitor_c]     4
-[system_bus_interface]     5
+[r0_w1_w1_same_addr_dcache]     1
+[r0_w1_w1_same_addr_dcache_seq]     3
+[system_bus_interface]     1
 [system_bus_monitor_c]     7
-[w0_r1_w2_same_addr_dcache]     1
-[w0_r1_w2_same_addr_dcache_seq]     3
-Simulation complete via $finish(1) at time 1775 NS + 50
+Simulation complete via $finish(1) at time 325 NS + 50
 /softwares/Linux/cadence/INCISIVE152/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
 ncsim> exit
 
@@ -440,6 +440,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_6d7c7886_77333d9b.ucm (reused)
-  data               :  ./cov_work/scope/test/icc_6d7c7886_77333d9b.ucd
-TOOL:	irun	15.20-s022: Exiting on Apr 18, 2020 at 20:51:00 CDT  (total: 00:00:03)
+  model(design data) :  ./cov_work/scope/icc_6d7c7886_2d6aacc1.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_6d7c7886_2d6aacc1.ucd
+TOOL:	irun	15.20-s022: Exiting on Apr 18, 2020 at 00:02:36 CDT  (total: 00:00:03)

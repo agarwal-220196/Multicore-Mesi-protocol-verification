@@ -178,14 +178,14 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	else	
 		`uvm_error("system_bus_interface",$sformatf("Assertion 16 assert_checking_sequence_type_lv2_wr Failed: lv2_rd did not get deasserted after data_in_bus_lv1_lv2 "))
 
-//ASSERTION 17: data_bus_lv1_lv2 and addr_bus_lv1_lv2 should not be invalid when data_in_bus_lv1_lv2 is high or rising?
+/*//ASSERTION 17: data_bus_lv1_lv2 and addr_bus_lv1_lv2 should not be invalid when data_in_bus_lv1_lv2 is high or rising?
 	property address_data_validity_data_in_bus_lv1_lv2;
 		@(posedge clk )
 			(data_in_bus_lv1_lv2) |-> (addr_bus_lv1_lv2 !== 32'hz && data_bus_lv1_lv2!== 32'hx );
 		endproperty
 	assert_valid_address_data_validity_data_in_bus_lv1_lv2: assert property(address_data_validity_data_in_bus_lv1_lv2)
 	else	
-		`uvm_error("system_bus_interface",$sformatf("Assertion 17 address_data_validity_data_in_bus_lv1_lv2 Failed: Address not valid!"))
+		`uvm_error("system_bus_interface",$sformatf("Assertion 17 address_data_validity_data_in_bus_lv1_lv2 Failed: Address not valid!"))*/
 
 //ASSERTION 18: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_req_proc go low together ----IF ASSERTION FAILS , TRY WITH !bus_lv1_lv2_req_proc|->!bus_lv1_lv2_gnt_proc
 	property bus_lv1_lv2_req_proc_and_grant_low;
@@ -345,7 +345,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 33: invalidate -> all_invalidation_done goes high then invalidate & all_invalidation_done go low in same cycle iff cpu_wr
 	property valid_invalidate_sequence;
 	@(posedge clk)
-		invalidate |=> all_invalidation_done ##1 !(all_invalidation_done && invalidate) ;
+		invalidate |=> all_invalidation_done ##1 !(all_invalidation_done) && (invalidate==1'bz) ;
 	endproperty
 	
 	assert_valid_invalidate_sequence :  assert property(valid_invalidate_sequence)
@@ -388,6 +388,15 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
     `uvm_error("system_bus_interface",$sformatf("Assertion 37 bus_lv1_lv2_gnt_snoop_then_bus_lv1_lv2_gnt_proc Failed: bus_lv1_lv2_gnt_proc to be high if bus_lv1_lv2_req_snoop asserted!"))
 
 	
+//ASSERTION 38: bus snoop should not go high without shared being high 
+	property snoop_high_after_shared_only;
+	@(posedge clk)
+		bus_lv1_lv2_req_snoop |-> shared;
+	endproperty
+
+	assert_snoop_high_after_shared_only : assert property(snoop_high_after_shared_only)
+	else 
+	`uvm_error("system_bus_interface",$sformatf("Assertion 38 snoop_high_after_shared_only Failed: data not shared is being provided with some other cache "))  
 
 //data_in_bus_lv1_lv2 goes low then bus_lv1_lv2_gnt_proc also goes low
 
