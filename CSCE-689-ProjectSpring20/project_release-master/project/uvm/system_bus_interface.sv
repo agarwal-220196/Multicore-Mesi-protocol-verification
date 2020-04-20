@@ -152,7 +152,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 
 //ASSERTION 14: grants asserted from bus_lv1_lv2_gnt_snoop side and bus_lv1_lv2_gnt_proc side for a single proc- need to write separately 4 times?
 	
-	assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop: assert property (prop_simult_signal1_and_signal2(bus_lv1_lv2_gnt_proc,bus_lv1_lv2_gnt_snoop))
+	assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop: assert property (prop_simult_signal1_and_signal2(bus_lv1_lv2_gnt_proc[0],bus_lv1_lv2_gnt_snoop[0]))
     else
         `uvm_error("system_bus_interface",$sformatf("Assertion 14 assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_gnt_snoop asserted simultaneously")) 
 
@@ -178,14 +178,14 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	else	
 		`uvm_error("system_bus_interface",$sformatf("Assertion 16 assert_checking_sequence_type_lv2_wr Failed: lv2_rd did not get deasserted after data_in_bus_lv1_lv2 "))
 
-//ASSERTION 17: data_bus_lv1_lv2 and addr_bus_lv1_lv2 should not be invalid when data_in_bus_lv1_lv2 is high or rising?
+/*//ASSERTION 17: data_bus_lv1_lv2 and addr_bus_lv1_lv2 should not be invalid when data_in_bus_lv1_lv2 is high or rising?
 	property address_data_validity_data_in_bus_lv1_lv2;
 		@(posedge clk )
 			(data_in_bus_lv1_lv2) |-> (addr_bus_lv1_lv2 !== 32'hz && data_bus_lv1_lv2!== 32'hx );
 		endproperty
 	assert_valid_address_data_validity_data_in_bus_lv1_lv2: assert property(address_data_validity_data_in_bus_lv1_lv2)
 	else	
-		`uvm_error("system_bus_interface",$sformatf("Assertion 17 address_data_validity_data_in_bus_lv1_lv2 Failed: Address not valid!"))
+		`uvm_error("system_bus_interface",$sformatf("Assertion 17 address_data_validity_data_in_bus_lv1_lv2 Failed: Address not valid!"))*/
 
 //ASSERTION 18: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_req_proc go low together ----IF ASSERTION FAILS , TRY WITH !bus_lv1_lv2_req_proc|->!bus_lv1_lv2_gnt_proc
 	property bus_lv1_lv2_req_proc_and_grant_low;
@@ -241,7 +241,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 23: bus_lv1_lv2_gnt_snoop should be asserted for bus_rd when data_in_bus_lv1_lv2 is high
 	property signal_assertions_bus_rd_sequence;
 	@(posedge clk iff bus_rd)
-		bus_lv1_lv2_gnt_snoop |-> (data_in_bus_lv1_lv2) ; //CHECK if we can check that lv2 not access then if data_in_bus_lv1_lv2 --> bus_lv1_lv2_gnt_snoop
+		bus_lv1_lv2_gnt_snoop |=> ##[0:$] (data_in_bus_lv1_lv2) ; //CHECK if we can check that lv2 not access then if data_in_bus_lv1_lv2 --> bus_lv1_lv2_gnt_snoop
 	endproperty
 	
 	assert_signal_assertions_bus_rd_sequence :  assert property(signal_assertions_bus_rd_sequence)
@@ -252,7 +252,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 24: for bus_rd when bus_lv1_lv2_gnt_snoop is asserted, then shared should become high after sometime
 	property signal_shared_bus_rd_sequence;
 	@(posedge clk iff bus_rd)
-		(bus_lv1_lv2_gnt_snoop) |=>  $rose(shared); //check this code
+		(bus_lv1_lv2_gnt_snoop) |=> ##[0:$] $rose(shared); //check this code
 	endproperty
 	
 	assert_signal_shared_bus_rd_sequence :  assert property(signal_shared_bus_rd_sequence)
@@ -273,7 +273,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 26: if cp_in_cache is asserted then bus_lv1_lv2_req_lv2 should be dropped
 	property snoop_or_lv2_onehot;
 	@(posedge clk)
-		lv2_rd |-> !(cp_in_cache && bus_lv1_lv2_req_lv2); //check if deassertion of other signal of the 2 next cycle or same cycle
+		$rose(cp_in_cache)|=> $fell(bus_lv1_lv2_req_lv2); //check if deassertion of other signal of the 2 next cycle or same cycle
 	endproperty
 	
 	assert_snoop_or_lv2_onehot :  assert property(snoop_or_lv2_onehot)
@@ -294,10 +294,10 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 
 
 
-//ASSERTION 28: lv2_rd and lv2_wr cannot occur at the same times
+/*//ASSERTION 28: lv2_rd and lv2_wr cannot occur at the same times
 	assert_simult_lv2_rd_and_lv2_wr: assert property (prop_simult_signal1_and_signal2(lv2_rd,lv2_wr))
     else
-        `uvm_error("system_bus_interface",$sformatf("Assertion 28 assert_simult_lv2_rd_and_lv2_wr Failed: lv2_rd and lv2_wr asserted simultaneously"))
+        `uvm_error("system_bus_interface",$sformatf("Assertion 28 assert_simult_lv2_rd_and_lv2_wr Failed: lv2_rd and lv2_wr asserted simultaneously"))*/
 
 
 //ASSERTION 29: lv2_rd when asserted, address should be valid
@@ -345,7 +345,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 33: invalidate -> all_invalidation_done goes high then invalidate & all_invalidation_done go low in same cycle iff cpu_wr
 	property valid_invalidate_sequence;
 	@(posedge clk)
-		invalidate |=> all_invalidation_done ##1 !(all_invalidation_done && invalidate) ;
+		invalidate |=> all_invalidation_done |=> !(all_invalidation_done && invalidate) ;
 	endproperty
 	
 	assert_valid_invalidate_sequence :  assert property(valid_invalidate_sequence)
@@ -380,7 +380,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 37: bus_lv1_lv2_gnt_snoop should not be high without bus_lv1_lv2_gnt_proc
 	property bus_lv1_lv2_gnt_snoop_then_bus_lv1_lv2_gnt_proc;
 	@(posedge clk)
-		bus_lv1_lv2_gnt_snoop |-> bus_lv1_lv2_gnt_proc ;
+		bus_lv1_lv2_gnt_snoop |->##[0:$] $past (bus_lv1_lv2_gnt_proc) ;
 	endproperty
 	
 	assert_bus_lv1_lv2_gnt_snoop_then_bus_lv1_lv2_gnt_proc :  assert property(bus_lv1_lv2_gnt_snoop_then_bus_lv1_lv2_gnt_proc)
@@ -398,4 +398,21 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //when lv2_wr_done is asserted then bus_lv1_lv2_gnt_lv2 should be high
 //WHEN IS cp_in_cache deasserted ?
 //: data_in_bus_lv1_lv2 goes from invalid to high, then lv2_rd should also be high
+//ASSERTION 14b: grants asserted from bus_lv1_lv2_gnt_snoop side and bus_lv1_lv2_gnt_proc side for a single proc- need to write separately 4 times?
+	
+	assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop_1: assert property (prop_simult_signal1_and_signal2(bus_lv1_lv2_gnt_proc[1],bus_lv1_lv2_gnt_snoop[1]))
+    else
+        `uvm_error("system_bus_interface",$sformatf("Assertion 14 assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_gnt_snoop asserted simultaneously")) 
+//ASSERTION 14c: grants asserted from bus_lv1_lv2_gnt_snoop side and bus_lv1_lv2_gnt_proc side for a single proc- need to write separately 4 times?
+	
+	assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop_2: assert property (prop_simult_signal1_and_signal2(bus_lv1_lv2_gnt_proc[2],bus_lv1_lv2_gnt_snoop[2]))
+    else
+        `uvm_error("system_bus_interface",$sformatf("Assertion 14 assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_gnt_snoop asserted simultaneously")) 
+//ASSERTION 14d: grants asserted from bus_lv1_lv2_gnt_snoop side and bus_lv1_lv2_gnt_proc side for a single proc- need to write separately 4 times?
+	
+	assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop_3: assert property (prop_simult_signal1_and_signal2(bus_lv1_lv2_gnt_proc[3],bus_lv1_lv2_gnt_snoop[3]))
+    else
+        `uvm_error("system_bus_interface",$sformatf("Assertion 14 assert_simult_bus_lv1_lv2_gnt_proc_and_bus_lv1_lv2_gnt_snoop Failed: bus_lv1_lv2_gnt_proc and bus_lv1_lv2_gnt_snoop asserted simultaneously")) 
+		
+
 endinterface

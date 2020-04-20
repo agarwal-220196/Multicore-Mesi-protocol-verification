@@ -13,3 +13,4 @@
 `include "write_miss_icache.sv"
 `include "read_miss0_read_hit1_dcache.sv"
 `include "read_w0_r0_r0_dcache.sv" 
+`include "W0_R1_W1same_addr_dcache.sv"
