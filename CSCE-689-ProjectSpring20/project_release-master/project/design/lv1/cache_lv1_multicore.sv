@@ -137,7 +137,7 @@ module cache_lv1_multicore #(
                         .ASSOC(ASSOC),
                         .ASSOC_WID(ASSOC_WID),
                         .DATA_WID(DATA_WID),
-                        .ADDR_WID(INDEX_MSB),
+                        .ADDR_WID(ADDR_WID),
                         .INDEX_MSB(INDEX_MSB),
                         .INDEX_LSB(INDEX_LSB),
                         .TAG_MSB(TAG_MSB),
