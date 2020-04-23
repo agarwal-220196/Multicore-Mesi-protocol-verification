@@ -1,5 +1,5 @@
 irun: 15.20-s022: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	irun	15.20-s022: Started on Apr 22, 2020 at 23:03:40 CDT
+TOOL:	irun	15.20-s022: Started on Apr 23, 2020 at 01:40:42 CDT
 irun
 	-f sim_cmd_line.f
 		+access+rwc
@@ -787,6 +787,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_1404b416_2356ba61.ucm
+  model(design data) :  ./cov_work/scope/icc_1404b416_2356ba61.ucm (reused)
   data               :  ./cov_work/scope/test/icc_1404b416_2356ba61.ucd
-TOOL:	irun	15.20-s022: Exiting on Apr 22, 2020 at 23:03:41 CDT  (total: 00:00:01)
+TOOL:	irun	15.20-s022: Exiting on Apr 23, 2020 at 01:40:44 CDT  (total: 00:00:02)
