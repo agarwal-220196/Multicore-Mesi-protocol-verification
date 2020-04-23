@@ -149,7 +149,7 @@ class system_bus_monitor_c extends uvm_monitor;
             endcase
 
             // address requested
-            s_packet.req_address = vi_sbus_if.addr_bus_lv1_lv2;
+           s_packet.req_address = vi_sbus_if.addr_bus_lv1_lv2;
 
             // fork and call tasks
             fork: update_info
@@ -237,6 +237,7 @@ class system_bus_monitor_c extends uvm_monitor;
 
             // wait until request is processed and send data
             @(negedge vi_sbus_if.bus_lv1_lv2_req_proc[0] or negedge vi_sbus_if.bus_lv1_lv2_req_proc[1] or negedge vi_sbus_if.bus_lv1_lv2_req_proc[2] or negedge vi_sbus_if.bus_lv1_lv2_req_proc[3]);
+			 s_packet.req_address = vi_sbus_if.addr_bus_lv1_lv2;
 
             `uvm_info(get_type_name(), "Packet to be written", UVM_LOW)
 

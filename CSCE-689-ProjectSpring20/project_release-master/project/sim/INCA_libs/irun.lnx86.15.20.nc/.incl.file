@@ -68,7 +68,11 @@
 ../uvm/read_w0_r0_r0_dcache.sv
 ./W0_R1_W1same_addr_dcache.sv
 ../uvm/W0_R1_W1same_addr_dcache.sv
-./r0_w1_r1_same_addr_dcache.sv
-../uvm/r0_w1_r1_same_addr_dcache.sv
-./w0_r1_w2_same_addr_dcache.sv
-../uvm/w0_r1_w2_same_addr_dcache.sv
+./R0_W1_R0_same_addr_dcache.sv
+../uvm/R0_W1_R0_same_addr_dcache.sv
+./R0_R1_W2_R1_same_addr_dcache.sv
+../uvm/R0_R1_W2_R1_same_addr_dcache.sv
+./R1_R0_R2_R3_W0_R1same_addr_dcache.sv
+../uvm/R1_R0_R2_R3_W0_R1same_addr_dcache.sv
+./LRU_check_test.sv
+../uvm/LRU_check_test.sv

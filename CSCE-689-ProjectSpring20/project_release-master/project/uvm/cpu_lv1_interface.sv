@@ -98,7 +98,7 @@ interface cpu_lv1_interface(input clk);
 
 	property checking_sequence_type_3;
 		@(posedge clk)
-			$fell(cpu_wr)|=>$fell(cpu_wr_done);
+		$rose(cpu_wr)|=>##[0:$] $rose(cpu_wr_done)|=> $fell(cpu_wr)|=>$fell(cpu_wr_done);
 	endproperty
 	assert_chceking_cpu_wr_follow_cpu_wr_done: assert property(checking_sequence_type_3)
 	else	
