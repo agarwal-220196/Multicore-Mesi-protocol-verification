@@ -391,7 +391,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 38: bus snoop should not go high without shared being high 
 	property snoop_high_after_shared_only;
 	@(posedge clk)
-		bus_lv1_lv2_req_snoop |-> shared;
+		bus_lv1_lv2_req_snoop |=>##[0:$] shared;
 	endproperty
 
 	assert_snoop_high_after_shared_only : assert property(snoop_high_after_shared_only)
