@@ -18,3 +18,24 @@
 `include "R0_R1_W2_R1_same_addr_dcache.sv"
 `include "R1_R0_R2_R3_W0_R1same_addr_dcache.sv"
 `include "LRU_check_test.sv"
+`include "r0_w1_r1_same_addr_dcache.sv"
+`include "R0_R2_R1_same_addr_dcache.sv"
+`include "R0_R2_R1_R3_W0_R0_same_addr_dcache.sv"
+`include "R0_R1_same_addr_dcache.sv"
+`include "R0_R1_W0_same_addr_dcache.sv"
+`include "R0_R1_R2_same_addr_dcache.sv"
+`include "R3_R2_R1_R0_same_addr_dcache.sv"
+`include "read_replacement_dcache.sv"
+`include "RAW_replacement_dcache.sv"
+`include "R0_W0_R0_same_addr_dcache.sv"
+`include "R0_W0_R1_same_addr_dcache.sv"
+`include "R0_W0_W0_R0_same_addr_dcache.sv"
+`include "R0_W1_W1_same_addr_dcache.sv"
+`include "W0_W0_R0_same_addr_dcache.sv"
+`include "W0_W0_R1_same_addr_dcache.sv"
+`include "W0_R0_W0_same_addr_dcache.sv"
+`include "W0_R1_W0_same_addr_dcache.sv"
+
+
+
+
