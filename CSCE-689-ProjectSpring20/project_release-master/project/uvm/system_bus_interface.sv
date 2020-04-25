@@ -345,7 +345,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 33: invalidate -> all_invalidation_done goes high then invalidate & all_invalidation_done go low in same cycle iff cpu_wr
 	property valid_invalidate_sequence;
 	@(posedge clk)
-		invalidate |=> all_invalidation_done ##1 !(all_invalidation_done) && (invalidate==1'bz) ;
+		invalidate |=> all_invalidation_done |=> !(all_invalidation_done) && (invalidate!=1'b1) ;
 	endproperty
 	
 	assert_valid_invalidate_sequence :  assert property(valid_invalidate_sequence)
@@ -391,7 +391,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 38: bus snoop should not go high without shared being high 
 	property snoop_high_after_shared_only;
 	@(posedge clk)
-		bus_lv1_lv2_req_snoop |=>##[0:$] shared;
+		bus_lv1_lv2_req_snoop |=> ##[0:$] shared;
 	endproperty
 
 	assert_snoop_high_after_shared_only : assert property(snoop_high_after_shared_only)
