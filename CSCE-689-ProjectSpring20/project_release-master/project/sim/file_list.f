@@ -44,5 +44,6 @@
     ../gold/lrs_arbiter.sv
     ../uvm/cpu_lv1_interface.sv
     ../uvm/system_bus_interface.sv
+	../uvm/cpu_mesi_lru_interface.sv
     ../uvm/cpu_pkg.sv
     ../uvm/top.sv
