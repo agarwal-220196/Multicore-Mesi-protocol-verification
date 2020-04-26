@@ -20,12 +20,12 @@
 `include "LRU_check_test.sv"
 
 
-`include "W0_W0_R0_same_addr_dcache.sv"
-`include "W0_W0_R1_same_addr_dcache.sv"
+//`include "W0_W0_R0_same_addr_dcache.sv"
+//`include "W0_W0_R1_same_addr_dcache.sv"
 `include "W0_W1_R0_same_addr_dcache.sv"
-`include "W0_R0_W0_same_addr_dcache.sv"
+//`include "W0_R0_W0_same_addr_dcache.sv"
 `include "W0_R0_W1_same_addr_dcache.sv"
-`include "W0_R1_W0_same_addr_dcache.sv"
+//`include "W0_R1_W0_same_addr_dcache.sv"
 `include "W0_R1_W1_same_addr_dcache.sv"
 `include "R0_W1_W0_same_addr_dcache.sv"
 `include "W0_W1_R2_same_addr_dcache.sv"
@@ -38,12 +38,16 @@
 
 //========= New tests Ishan 
 `include "w1_w0_r0_same_addr_dcache.sv"
+`include "w1_w0_r0_same_addr_dcache_random.sv"
 
 `include "w0_w0_r0_same_addr_dcache.sv"
+`include "w0_w0_r0_same_addr_dcache_random.sv"
 
 `include "w0_w1_r1_same_addr_dcache.sv"
+`include "w0_w1_r1_same_addr_dcache_random.sv"
 
 `include "w0_r0_w0_r0_same_addr_dcache.sv"
+`include "w0_r0_w0_r0_same_addr_dcache_random.sv"
 
 `include "r0_r0_same_addr_dcache.sv"
 
@@ -55,7 +59,7 @@
 
 `include "r0_w1_r0_same_addr_dcache.sv"
 
-`include "r0_w1_r1_same_addr_dcache.sv"
+//`include "r0_w1_r1_same_addr_dcache.sv"
 
 `include "r0_w0_w0_same_addr_dcache.sv"
 
@@ -66,6 +70,7 @@
 `include "r0_w1_w1_same_addr_dcache.sv"
 
 `include "r0_w1_r2_same_addr_dcache.sv"
+`include "r0_w1_r2_same_addr_dcache_random.sv"
 
 //=== SANKET 
 
