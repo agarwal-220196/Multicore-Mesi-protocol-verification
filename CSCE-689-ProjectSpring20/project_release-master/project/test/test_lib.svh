@@ -21,7 +21,17 @@
 
 `include "W0_W0_R0_same_addr_dcache.sv"
 `include "W0_W0_R1_same_addr_dcache.sv"
-=======
+`include "W0_W1_R0_same_addr_dcache.sv"
+`include "W0_R0_W0_same_addr_dcache.sv"
+`include "W0_R0_W1_same_addr_dcache.sv"
+`include "W0_R1_W0_same_addr_dcache.sv"
+`include "W0_R1_W1_same_addr_dcache.sv"
+`include "R0_W1_W0_same_addr_dcache.sv"
+`include "W0_W1_R2_same_addr_dcache.sv"
+`include "W0_R0_W0_samedata_same_addr_dcache.sv"
+
+
+//=======
 
 
 
@@ -51,7 +61,7 @@
 
 `include "r0_w0_w1_same_addr_dcache.sv"
 
-`include "r0_w1_w0_same_addr_dcache.sv"
+//`include "r0_w1_w0_same_addr_dcache.sv"
 
 `include "r0_w1_w1_same_addr_dcache.sv"
 
