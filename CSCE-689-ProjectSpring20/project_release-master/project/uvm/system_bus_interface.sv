@@ -92,17 +92,54 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_invalidate_signal_check : assert property( prop2_sig1_before_sig2(invalidate, all_invalidation_done))
 	 else
     `uvm_error("system_bus_interface",$sformatf("Assertion 6 assert_invalidate_signal_check Failed: all_invalidation_done raised high without any invalidate"))
-	
-//ASSERTION7 : grant and snoop signals must go low only after cpu_rd goes low!!!DOUBTFUL
-	 property gnt_snoop_cpu_rd;
+/*
+//ASSERTION 7a : grant and snoop signals must go low only after cpu_rd goes low!!!DOUBTFUL
+	 property gnt_snoop_cpu_rd_0;
 	 @(posedge clk)
-		($fell(bus_lv1_lv2_gnt_snoop) && $fell(bus_lv1_lv2_req_snoop))|-> $past($fell(bus_rd));
+		$rose(bus_rd) |=>##[0:$]($fell(bus_lv1_lv2_gnt_snoop[0]) && $fell(bus_lv1_lv2_req_snoop[0]))|-> $past($fell(bus_rd));
+		
 	endproperty
 
-	assert_grant_snoop_bus_cpu_rd :  assert property (gnt_snoop_cpu_rd)
+	assert_grant_snoop_bus_cpu_rd_0 :  assert property (gnt_snoop_cpu_rd_0)
 	else
-    `uvm_error("system_bus_interface",$sformatf("Assertion 7 assert_grant_snoop_bus_cpu_rd Failed: gnt and snoop behaviour to be checked"))
+    `uvm_error("system_bus_interface",$sformatf("Assertion 7a assert_grant_snoop_bus_cpu_rd Failed: gnt and snoop behaviour to be checked"))
+
+//ASSERTION 7b : grant and snoop signals must go low only after cpu_rd goes low!!!DOUBTFUL
+	 property gnt_snoop_cpu_rd_1;
+	 @(posedge clk) 
+		$rose(bus_rd) |=>##[0:$]($fell(bus_lv1_lv2_gnt_snoop[1]) && $fell(bus_lv1_lv2_req_snoop[1]))|-> $past($fell(bus_rd));
+		
+	endproperty
+
+	assert_grant_snoop_bus_cpu_rd_1 :  assert property (gnt_snoop_cpu_rd_1)
+	else
+    `uvm_error("system_bus_interface",$sformatf("Assertion 7b assert_grant_snoop_bus_cpu_rd Failed: gnt and snoop behaviour to be checked"))
+
+//ASSERTION 7c : grant and snoop signals must go low only after cpu_rd goes low!!!DOUBTFUL
+	 property gnt_snoop_cpu_rd_2;
+	 @(posedge clk)
+		$rose(bus_rd) |=>##[0:$]($fell(bus_lv1_lv2_gnt_snoop[2]) && $fell(bus_lv1_lv2_req_snoop[2]))|-> $past($fell(bus_rd));
+		
+	endproperty
+
+	assert_grant_snoop_bus_cpu_rd_2 :  assert property (gnt_snoop_cpu_rd_2)
+	else
+    `uvm_error("system_bus_interface",$sformatf("Assertion 7c assert_grant_snoop_bus_cpu_rd Failed: gnt and snoop behaviour to be checked"))
 	
+//ASSERTION 7d : grant and snoop signals must go low only after cpu_rd goes low!!!DOUBTFUL
+	 property gnt_snoop_cpu_rd_3;
+	 @(posedge clk)
+		$rose(bus_rd) |=>##[0:$]($fell(bus_lv1_lv2_gnt_snoop[3]) && $fell(bus_lv1_lv2_req_snoop[3]))|-> $past($fell(bus_rd));
+		
+	endproperty
+
+	assert_grant_snoop_bus_cpu_rd_3 :  assert property (gnt_snoop_cpu_rd_3)
+	else
+    `uvm_error("system_bus_interface",$sformatf("Assertion 7d assert_grant_snoop_bus_cpu_rd Failed: gnt and snoop behaviour to be checked"))
+	
+*/	
+	
+/************************************************************************************************************************/	
 //ASSERTION 8: data_in_bus_lv1_lv2 goes 
 	property read_data_checking;
 	@(posedge clk)
@@ -345,7 +382,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 //ASSERTION 33: invalidate -> all_invalidation_done goes high then invalidate & all_invalidation_done go low in same cycle iff cpu_wr
 	property valid_invalidate_sequence;
 	@(posedge clk)
-		invalidate |=> all_invalidation_done |=> !(all_invalidation_done && invalidate) ;
+	invalidate |=> all_invalidation_done |=> !(all_invalidation_done) && (invalidate!==1'b1) ;
 	endproperty
 	
 	assert_valid_invalidate_sequence :  assert property(valid_invalidate_sequence)
@@ -388,6 +425,15 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
     `uvm_error("system_bus_interface",$sformatf("Assertion 37 bus_lv1_lv2_gnt_snoop_then_bus_lv1_lv2_gnt_proc Failed: bus_lv1_lv2_gnt_proc to be high if bus_lv1_lv2_req_snoop asserted!"))
 
 	
+//ASSERTION 38: bus snoop should not go high without shared being high 
+	property snoop_high_after_shared_only;
+	@(posedge clk)
+		bus_lv1_lv2_req_snoop |=> ##[0:$] shared;
+	endproperty
+
+	assert_snoop_high_after_shared_only : assert property(snoop_high_after_shared_only)
+	else 
+	`uvm_error("system_bus_interface",$sformatf("Assertion 38 snoop_high_after_shared_only Failed: data not shared is being provided with some other cache "))  
 
 //data_in_bus_lv1_lv2 goes low then bus_lv1_lv2_gnt_proc also goes low
 

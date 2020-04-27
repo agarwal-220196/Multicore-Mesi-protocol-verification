@@ -1,6 +1,6 @@
 //=====================================================================
 // Project: 4 core MESI cache design
-// File Name: read_miss0_read_hit1_dcache.sv
+// File Name: W0_R1_W1same_addr_dcache.sv
 // Description: Test for read-miss to D-cache
 // Designers: Venky & Suru
 //=====================================================================
@@ -43,10 +43,9 @@ class W0_R1_W1same_addr_dcache_seq extends base_vseq;
 
     virtual task body();
         `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC;   address == 32'h4321_432E; data==32'h1603_1996; })
-        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_432E;})
-        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_432E; data==32'h0501_1959;})
-		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_432E;})
-        
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_432E;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_432E; data==32'h0501_1959;})
+		
    endtask
 
 endclass : W0_R1_W1same_addr_dcache_seq

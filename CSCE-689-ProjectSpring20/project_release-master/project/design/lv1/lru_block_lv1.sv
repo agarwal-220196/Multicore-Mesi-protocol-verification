@@ -35,8 +35,8 @@ module lru_block_lv1 #(
     always @ * begin
         casex (lru_var[index_proc])
             BLK0_REPLACEMENT: lru_replacement_proc = 2'b00;
-            BLK1_REPLACEMENT: lru_replacement_proc = 2'b10;
-            BLK2_REPLACEMENT: lru_replacement_proc = 2'b01;
+            BLK1_REPLACEMENT: lru_replacement_proc = 2'b01;
+            BLK2_REPLACEMENT: lru_replacement_proc = 2'b10;
             BLK3_REPLACEMENT: lru_replacement_proc = 2'b11;
             default:          lru_replacement_proc = 2'b00;
         endcase
