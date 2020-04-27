@@ -20,14 +20,14 @@ class cpu_monitor_c extends uvm_monitor;
         REQUEST: coverpoint packet.request_type;
         //TODO: add coverpoints for Data, Address, etc.
 		DATA: coverpoint packet.dat{
-                option.auto_bin_max = 20;
+                option.auto_bin_max = 10;
         }
         ADDRESS: coverpoint packet.address{
-                option.auto_bin_max = 20;
+                option.auto_bin_max = 10;
         }
         ADDRESS_TYPE: coverpoint packet.addr_type;
-        NUMCYCLES: coverpoint packet.num_cycles;
-        ILLEGAL: coverpoint packet.illegal;
+        //NUMCYCLES: coverpoint packet.num_cycles;
+        //ILLEGAL: coverpoint packet.illegal;
 		
 		X_TYPE__DATA: cross REQUEST, DATA;
         X_TYPE__ADDR: cross REQUEST, ADDRESS;

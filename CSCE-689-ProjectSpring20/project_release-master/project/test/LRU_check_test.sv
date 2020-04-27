@@ -52,7 +52,16 @@ class LRU_check_test_seq extends base_vseq;
         `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_0000;})
 		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_0000;})
 
-        
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC;   address == 32'h4321_1111; data==32'h1603_1996; })
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h4444_1111;data==32'h1111_1111;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_1111; data==32'h0501_1959;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_1111;data==32'h2222_2222;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7777_1111;})
+        //`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7000_1111;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_1111;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_1111;})
+
    endtask
 
 endclass : LRU_check_test_seq

@@ -54,7 +54,10 @@ logic [ADDR_WID - 1       : 0]	addr_bus_lv1_lv2;
     parameter MODIFIED  = 2'b11;
 
     // MESI Covergroup
-    covergroup cover_mesi;
+    covergroup cover_mesi @(posedge clk);
+	option.per_instance=1;
+	option.name = "cover_mesi";
+        
 cov_proc_cur: coverpoint current_mesi_proc iff (cpu_rd || cpu_wr) {
             bins BIN_INVALID   = INVALID;
             bins BIN_SHARED    = SHARED;
@@ -75,27 +78,39 @@ cov_snoop_cur: coverpoint current_mesi_snoop iff (bus_rd || bus_rdx || invalidat
             bins BIN_EXCLUSIVE = EXCLUSIVE;
             bins BIN_MODIFIED  = MODIFIED;            
         }
-        cov_snoop_upd: coverpoint updated_mesi_snoop iff (bus_rd || bus_rdx || invalidate) {
+cov_snoop_upd: coverpoint updated_mesi_snoop iff (bus_rd || bus_rdx || invalidate) {
             bins BIN_INVALID   = INVALID;
             bins BIN_SHARED    = SHARED;
             bins BIN_EXCLUSIVE = EXCLUSIVE;
             bins BIN_MODIFIED  = MODIFIED;            
         }
-
-
   endgroup
 
     // LRU Covergroup
-   covergroup cover_lru;
+   covergroup cover_lru @(posedge clk);
 
-option.per_instance = 1;
+	option.per_instance = 1;
+	option.name = "cover_lru";
+    
 	cov_index_proc: coverpoint index_proc{
 	    option.auto_bin_max = 10;
 	}
+	cov_tag_proc : coverpoint tag_proc{
+		option.auto_bin_max=10;
+		}
 	cov_blk_accessed_main: coverpoint blk_accessed_main;
 	cov_lru_replacement_proc: coverpoint lru_replacement_proc;
 endgroup
 
+cover_lru COVER_LRU=new;
+cover_mesi COVER_MESI=new;
+/*
+forever
+begin
+COVER_MESI.sample();
+COVER_LRU.sample();
+
+end */
 endinterface
 
 

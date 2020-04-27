@@ -140,7 +140,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 */	
 	
 /************************************************************************************************************************/	
-//ASSERTION 8: data_in_bus_lv1_lv2 goes 
+/*//ASSERTION 8: data_in_bus_lv1_lv2 goes 
 	property read_data_checking;
 	@(posedge clk)
 		$fell(data_in_bus_lv1_lv2)|-> ##[0:$] $past($fell(bus_rd));
@@ -149,7 +149,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_read_check :  assert property(read_data_checking)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 8 assert_read_check Failed:Read failed"))
-	
+	*/
 
 
 
@@ -244,7 +244,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_bus_lv1_lv2_req_snoop_and_grant_low :  assert property(bus_lv1_lv2_req_snoop_and_grant_low)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 19 bus_lv1_lv2_req_snoop_and_grant_low Failed: gnt_snoop and req_snoop should go low together"))
-
+/*
 //ASSERTION 20: bus_lv1_lv2_gnt_lv2 and bus_lv1_lv2_req_lv2 go low together 
 	property bus_lv1_lv2_req_lv2_and_grant_low;
 	@(posedge clk iff bus_lv1_lv2_gnt_lv2)
@@ -254,7 +254,8 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_bus_lv1_lv2_req_lv2_and_grant_low :  assert property(bus_lv1_lv2_req_lv2_and_grant_low)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 20  bus_lv1_lv2_req_snoop_and_grant_low Failed: gnt_lv2 and req_lv2 should go low together"))
-
+*/
+/*
 //ASSERTION 21:  bus_rd sequence
 	property valid_bus_rd_sequence;
 	@(posedge clk)
@@ -264,7 +265,8 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_valid_bus_rd_sequence :  assert property(valid_bus_rd_sequence)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 21 valid_bus_rd_sequence Failed: bus_rd sequence not executed properly!"))
-
+*/
+/*
 //ASSERTION 22: bus_lv1_lv2_req_snoop,shared,should be deasserted after data_in_bus_lv1_lv2 goes low for bus_rd -----CHECK FOR CPU_WR
 	property deassertions_bus_rd_sequence;
 	@(posedge clk iff bus_rd)
@@ -274,7 +276,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_deassertions_bus_rd_sequence :  assert property(deassertions_bus_rd_sequence)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 22 deassertions_bus_rd_sequence Failed: bus_lv1_lv2_req_snoop and shared should go low together"))
-
+*/
 //ASSERTION 23: bus_lv1_lv2_gnt_snoop should be asserted for bus_rd when data_in_bus_lv1_lv2 is high
 	property signal_assertions_bus_rd_sequence;
 	@(posedge clk iff bus_rd)
@@ -367,7 +369,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_invalidate_iff_processor_wr :  assert property(invalidate_iff_processor_wr)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 31 invalidate_iff_processor_wr Failed: invalid high even though processor write not taking place!"))
-
+/*
 //ASSERTION 32: bus_rdx means that invalid asserted (copies will be invalidated) --------NOTE OPPOSITE IS NOT TRUE!
 	property invalidate_if_bus_rdx;
 	@(posedge clk iff ( shared ))
@@ -377,7 +379,7 @@ property prop2_sig1_before_sig2(signal_1,signal_2);
 	assert_invalidate_if_bus_rdx :  assert property(invalidate_if_bus_rdx)
 	else
     `uvm_error("system_bus_interface",$sformatf("Assertion 32 invalidate_if_bus_rdx Failed: if bus_rdx is asserted then in few cycles invalidate will become high!"))
-
+*/
 
 //ASSERTION 33: invalidate -> all_invalidation_done goes high then invalidate & all_invalidation_done go low in same cycle iff cpu_wr
 	property valid_invalidate_sequence;

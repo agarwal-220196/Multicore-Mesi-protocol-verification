@@ -21,15 +21,15 @@ class system_bus_monitor_c extends uvm_monitor;
         REQUEST_TYPE: coverpoint  s_packet.bus_req_type;
         REQUEST_PROCESSOR: coverpoint s_packet.bus_req_proc_num;
         REQUEST_ADDRESS: coverpoint s_packet.req_address{
-            option.auto_bin_max = 20;
+            option.auto_bin_max = 10;
         }
         READ_DATA: coverpoint s_packet.rd_data{
-            option.auto_bin_max = 20;
+            option.auto_bin_max = 10;
         }
         //TODO: Add coverage for other fields of sbus_mon_packet		
 		
 		WRITE_DATA_SNOOP: coverpoint s_packet.wr_data_snoop{
-            option.auto_bin_max = 20;
+            option.auto_bin_max = 10;
         }
 		
 		BUS_REQUEST_SNOOP: coverpoint  s_packet.bus_req_snoop;
@@ -45,10 +45,10 @@ class system_bus_monitor_c extends uvm_monitor;
 		
 		
 		PROC_EVICT_DIRTY_BLK_ADDR: coverpoint s_packet.proc_evict_dirty_blk_addr{
-           option.auto_bin_max = 20;
+           option.auto_bin_max = 10;
         }
         PROC_EVICT_DIRTY_BLK_DATA: coverpoint s_packet.proc_evict_dirty_blk_data{
-           option.auto_bin_max = 20;
+           option.auto_bin_max = 10;
         }
         PROC_EVICT_DIRTY_BLK_FLAG: coverpoint s_packet.proc_evict_dirty_blk_flag;
 
@@ -237,10 +237,23 @@ class system_bus_monitor_c extends uvm_monitor;
 
             // wait until request is processed and send data
             @(negedge vi_sbus_if.bus_lv1_lv2_req_proc[0] or negedge vi_sbus_if.bus_lv1_lv2_req_proc[1] or negedge vi_sbus_if.bus_lv1_lv2_req_proc[2] or negedge vi_sbus_if.bus_lv1_lv2_req_proc[3]);
+			 begin
 			 s_packet.req_address = vi_sbus_if.addr_bus_lv1_lv2;
+			if (vi_sbus_if.bus_rd === 1'b1 && vi_sbus_if.addr_bus_lv1_lv2 >= 32'h4000_0000)//Data stored in instruction level cache is not shared so no coherence protocol is needed.
+                s_packet.bus_req_type = BUS_RD;
+				
+			if (vi_sbus_if.invalidate === 1'b1)
+                s_packet.bus_req_type = INVALIDATE;
+				
+			// bus request type with intention to modify 
+			if (vi_sbus_if.bus_rdx === 1'b1)
+                s_packet.bus_req_type = BUS_RDX;
+				
+			if (vi_sbus_if.bus_rd !== 1'b1 && vi_sbus_if.lv2_rd === 1'b1 && vi_sbus_if.addr_bus_lv1_lv2 < 32'h4000_0000)
+				s_packet.bus_req_type = ICACHE_RD;
 
             `uvm_info(get_type_name(), "Packet to be written", UVM_LOW)
-
+			end
             // disable all spawned child processes from fork
             disable fork;
 
