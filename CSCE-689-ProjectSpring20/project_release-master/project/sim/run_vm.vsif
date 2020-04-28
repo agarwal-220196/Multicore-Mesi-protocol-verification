@@ -340,4 +340,10 @@ group all_test {
            scan_script: "vm_scan.pl ius.flt shell.flt" ;
 	   count : 5;
       };
+      
+      test test55{
+      	   run_script: "cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=LRU_check_test_write_to_mem -define TEST55" ;
+           scan_script: "vm_scan.pl ius.flt shell.flt" ;
+	   count : 5;
+      };
 };
