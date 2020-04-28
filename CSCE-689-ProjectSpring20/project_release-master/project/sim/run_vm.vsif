@@ -16,11 +16,13 @@ group all_test {
 
 
 
-      test test1 {
+     /* test test1 {
       	   run_script: "cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=lru1 -define TEST1" ;
            scan_script: "vm_scan.pl ius.flt shell.flt" ;
 	   count : 5;
       };
+      lru1 does not exist anymore
+      /*
 
       test test2 {
       	   run_script: "cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=lru4 -define TEST2" ;
