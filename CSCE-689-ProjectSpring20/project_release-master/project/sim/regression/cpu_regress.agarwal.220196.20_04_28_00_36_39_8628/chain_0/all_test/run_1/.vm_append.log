@@ -1,0 +1,16 @@
+Tue Apr 28 00:37:00 CDT 2020
+/softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/vm_append_to_vsof.pl
+printing from file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_00_36_39_8628/chain_0/all_test/run_1/job_status.txt
+printing to file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_00_36_39_8628/cpu_regress.vsof
+runs data dir is: /softwares/internal/vmanager/profile/chunks/projects/vmgr
+Chunk name is: /softwares/internal/vmanager/profile/chunks/projects/vmgr/25_481f11f0-8912-11ea-9b97-df39425a740d.chunk
+From offset: 0
+To offset: 4294967295
+Tue Apr 28 00:37:13 CDT 2020
+/softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/vm_append_to_vsof.pl
+printing from file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_00_36_39_8628/chain_0/all_test/run_1/local_vsof.txt
+printing to file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_00_36_39_8628/cpu_regress.vsof
+runs data dir is: /softwares/internal/vmanager/profile/chunks/projects/vmgr
+Chunk name is: /softwares/internal/vmanager/profile/chunks/projects/vmgr/45_5053d838-8912-11ea-8f64-03335223ea94.chunk
+From offset: 0
+To offset: 4294967295

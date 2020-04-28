@@ -1,0 +1,34 @@
+[20_04_28_10_43_37] : Master initialized on hera3.ece.tamu.edu with PID 34056
+[20_04_28_10_43_37] : Trying to obtain lock
+[20_04_28_10_43_38] : Master reincarnation count is: 9
+[20_04_28_10_43_38] : Running hearbeat thread
+[20_04_28_10_43_38] : Heartbeat initialized
+[20_04_28_10_43_38] : Master is launching a new watchdog
+[20_04_28_10_43_38] : Successfully launched new watchdog.
+[20_04_28_10_43_38] : Starting flow
+[20_04_28_10_43_38] : cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress__pre_session--/usr/bin/env--
+[20_04_28_10_43_38] : cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress___all_test___read_miss_icache__run_1--/usr/bin/env--
+[20_04_28_10_43_38] : cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress__post_session--/usr/bin/env-- 
+[20_04_28_10_43_38] : ----
+[20_04_28_10_43_43] :  <<<<<< Updated job status >>>>>> 
+Pending: 2  ,  Ready: 0  ,  Running: 1  ,  Aborted: 0  ,  Teminated: 0  ,  Removed: 0  ,  DRMErr: 0  ,  PAborted: 0  ,  Unknown: 0
+
+[20_04_28_10_43_43] : DRM Id of cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress__pre_session is 34394
+[20_04_28_10_43_47] :  <<<<<< Updated job status >>>>>> 
+Pending: 1  ,  Ready: 0  ,  Running: 1  ,  Aborted: 0  ,  Teminated: 1  ,  Removed: 0  ,  DRMErr: 0  ,  PAborted: 0  ,  Unknown: 0
+
+[20_04_28_10_43_47] : DRM Id of cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress___all_test___read_miss_icache__run_1 is 36032
+[20_04_28_10_43_47] : Updating exit status of cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress__pre_session to 0
+[20_04_28_10_43_49] : Found STOP file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_10_43_35_4103/chain_0/.stop_files/STOP_FILE_0ce99bf0-8967-11ea-9be4-37d47845ba7a
+[20_04_28_10_43_49] : Found STOP file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_10_43_35_4103/chain_0/.stop_files/STOP_FILE_0ce848ae-8967-11ea-bc74-db44c799e135
+[20_04_28_10_43_49] : Found STOP file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_10_43_35_4103/chain_0/.stop_files/STOP_FILE_0ce7627c-8967-11ea-8389-23645a140f09
+[20_04_28_10_43_49] : Found STOP file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_10_43_35_4103/chain_0/.stop_files/STOP_FILE_0cea537e-8967-11ea-9dd2-5b94710c4d55
+[20_04_28_10_43_49] : Found STOP file: /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_10_43_35_4103/chain_0/.stop_files/STOP_FILE_0ce8f092-8967-11ea-bdee-f361eb02f0c1
+[20_04_28_10_43_49] : Master will stop entire session
+[20_04_28_10_43_49] : Flow was aborted
+[20_04_28_10_43_49] : Writing the final abort status
+[20_04_28_10_43_49] :  <<<<<< Updated job status >>>>>> 
+Pending: 0  ,  Ready: 0  ,  Running: 0  ,  Aborted: 0  ,  Teminated: 1  ,  Removed: 2  ,  DRMErr: 0  ,  PAborted: 0  ,  Unknown: 0
+
+[20_04_28_10_43_50] : Master exits successfully
+[20_04_28_10_43_50] : Master destroyed

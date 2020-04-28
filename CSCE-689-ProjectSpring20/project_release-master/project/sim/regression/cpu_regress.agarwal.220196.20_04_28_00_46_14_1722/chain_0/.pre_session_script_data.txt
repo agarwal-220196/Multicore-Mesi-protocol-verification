@@ -1,0 +1,4 @@
+session_output cpu_regress.agarwal.220196.20_04_28_00_46_14_1722 {
+	session_status : <text>pre_session_script_done</text>;
+}
+

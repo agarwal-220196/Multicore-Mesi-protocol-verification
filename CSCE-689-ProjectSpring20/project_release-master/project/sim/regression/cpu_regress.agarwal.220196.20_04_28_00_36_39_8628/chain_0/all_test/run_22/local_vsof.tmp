@@ -1,0 +1,10 @@
+extend 22 {
+failure run {
+	tool : <text>brun</text>;
+	severity : <text>warning</text>;
+	kind : <text>run</text>;
+	description : <text>Job stopped</text>;
+}
+	job_status : <text>stopped</text>;
+}
+

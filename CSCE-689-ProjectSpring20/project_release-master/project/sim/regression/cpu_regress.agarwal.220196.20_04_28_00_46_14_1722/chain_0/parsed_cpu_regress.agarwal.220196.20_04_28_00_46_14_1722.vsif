@@ -1,0 +1,282 @@
+session cpu_regress {
+	pre_session_script : <text> echo "pre_session_script" </text>;
+	top_dir : "$ENV(PWD)/regression/";
+};
+group all_test {
+	count : "5";
+	pre_commands : "";
+	run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_miss_icache</text>;
+	scan_script : "vm_scan.pl ius.flt shell.flt";
+	sv_seed : "random";
+	timeout : "13000000";
+	test test1 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=lru1 -define TEST1</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test10 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_R1_W2_R1_same_addr_dcache -define TEST10</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test11 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_R2_R1_R3_W0_R0_same_addr_dcache -define TEST11</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test12 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_R2_R1_same_addr_dcache -define TEST12</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test13 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_W0_R0_same_addr_dcache -define TEST13</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test14 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_W0_R1_same_addr_dcache -define TEST14</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test15 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_W0_W0_R0_same_addr_dcache -define TEST15</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test16 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=r0_w0_w0_same_addr_dcache -define TEST16</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test17 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=r0_w0_w1_same_addr_dcache -define TEST17</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test18 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_W1_R0_same_addr_dcache -define TEST18</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test19 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=r0_w1_r1_same_addr_dcache -define TEST19</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test2 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=lru4 -define TEST2</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test20 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=r0_w1_r2_same_addr_dcache -define TEST20</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test21 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=r0_w1_r2_same_addr_dcache_random -define TEST21</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test22 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_W1_W0_same_addr_dcache -define TEST22</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test23 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_W1_W1_same_addr_dcache -define TEST23</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test24 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R1_R0_R2_R3_W0_R1same_addr_dcache -define TEST24</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test25 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R3_R2_R1_R0_same_addr_dcache -define TEST25</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test26 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=RAW_replacement_dcache -define TEST26</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test27 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_miss0_read_hit1_dcache -define TEST27</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test28 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_miss_dcache -define TEST28</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test29 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_miss_icache -define TEST29</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test3 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=LRU_check_test -define TEST3</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test30 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_replacement_dcache -define TEST30</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test31 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_w0_r0_r0_dcache -define TEST31</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test32 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=read_write_randomized -define TEST32</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test33 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w0_r0_w0_r0_same_addr_dcache -define TEST33</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test34 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w0_r0_w0_r0_same_addr_dcache_random -define TEST34</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test35 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_R0_W0_same_addr_dcache -define TEST35</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test36 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_R0_W0_samedata_same_addr_dcache -define TEST36</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test37 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_R0_W1_same_addr_dcache -define TEST37</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test38 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_R1_W0_same_addr_dcache -define TEST38</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test39 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_R1_W1_same_addr_dcache -define TEST39</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test4 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=lru_otherproc_modified -define TEST4</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test40 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_R1_W1same_addr_dcache -define TEST40</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test41 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w0_r1_w2_same_addr_dcache -define TEST41</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test42 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_W0_R0_same_addr_dcache -define TEST42</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test43 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w0_w0_r0_same_addr_dcache_random -define TEST43</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test44 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_W0_R1_same_addr_dcache -define TEST44</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test45 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_W1_R0_same_addr_dcache -define TEST45</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test46 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w0_w1_r1_same_addr_dcache -define TEST46</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test47 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w0_w1_r1_same_addr_dcache_random -define TEST47</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test48 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=W0_W1_R2_same_addr_dcache -define TEST48</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test49 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w1_w0_r0_same_addr_dcache -define TEST49</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test5 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=lru_otherproc_shared -define TEST5</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test50 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=w1_w0_r0_same_addr_dcache_random -define TEST50</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test51 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=write_miss_dcache -define TEST51</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test52 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=write_miss_dcache_randomized -define TEST52</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test53 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=write_miss_icache -define TEST53</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test54 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=write_miss_icache_randomized -define TEST54</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test6 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=r0_r0_same_addr_dcache -define TEST6</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test7 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_R1_R2_same_addr_dcache -define TEST7</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test8 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_R1_same_addr_dcache -define TEST8</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+	test test9 {
+		count : "5";
+		run_script : <text>cd $ENV(PWD) ; irun -f run_vm.f +UVM_TESTNAME=R0_R1_W0_same_addr_dcache -define TEST9</text>;
+		scan_script : "vm_scan.pl ius.flt shell.flt";
+	};
+};

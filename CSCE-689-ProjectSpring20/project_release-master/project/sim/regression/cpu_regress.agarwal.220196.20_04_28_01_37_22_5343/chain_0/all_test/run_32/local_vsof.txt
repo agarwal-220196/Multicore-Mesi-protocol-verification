@@ -1,0 +1,215 @@
+extend 32 {
+	cpu_time: 4100;
+	user_time: 3100;
+	system_time: 1000;
+	simulation_time: 645000000;
+}
+
+extend 32 {
+        end_time : <text>1588056472</text>;
+        engine : <text>ncsim</text>;
+        log_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/cov_work/scope/test/irun.log<__SEPARATOR__>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log<__SEPARATOR__>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+        parent_run : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/cpu_regress.vsof:cpu_regress/all_test/test16@31</text>;
+        run_id : 32;
+        run_type : <text>simulation</text>;
+        simulation_time : 645000000;
+        sv_seed : 1;
+
+        filter "ncsim" {
+                filter_files : <text>ius.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>ncsim</text>;
+                log_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/cov_work/scope/test/irun.log</text>;
+        }
+
+        coverage_model "ncsim" {
+                tool_name : <text>ncsim</text>;
+                ucm_checksum : <text>7bfd3f05_002bfa59</text>;
+                ucm_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/model_dir/icc_7bfd3f05_002bfa59.ucm</text>;
+        }
+
+        coverage_data "ncsim" {
+                tool_name : <text>ncsim</text>;
+                ucd_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/cov_work/scope/test/icc_7bfd3f05_002bfa59.ucd</text>;
+                ucm_checksum : <text>7bfd3f05_002bfa59</text>;
+        }
+
+        filter "ncvlog" {
+                filter_files : <text>ius.flt ovm_sv_lib.flt</text>;
+                filter_id : <text>ncvlog</text>;
+        }
+
+        failure F0 {
+                description : <text>This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.</text>;
+                failure_id : <text>F0</text>;
+                kind : <text>DSEMEL</text>;
+                reference : <text>20@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        failure F1 {
+                description : <text>By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.</text>;
+                failure_id : <text>F1</text>;
+                kind : <text>COVDCL</text>;
+                reference : <text>63@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        failure F2 {
+                description : <text>Covergroup "per_instance" option , by default, is set as 0.</text>;
+                failure_id : <text>F2</text>;
+                kind : <text>CGPIDF</text>;
+                reference : <text>71@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        failure F3 {
+                description : <text>This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.</text>;
+                failure_id : <text>F3</text>;
+                kind : <text>DSEM2009</text>;
+                reference : <text>97@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F4 {
+                description : <text>Name of covergroup instance "cover_lru" is same as the name of the covergroup "cover_lru".</text>;
+                failure_id : <text>F4</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>458@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F5 {
+                description : <text>Name of covergroup instance "cover_mesi" is same as the name of the covergroup "cover_mesi".</text>;
+                failure_id : <text>F5</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>459@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F6 {
+                description : <text>Name of covergroup instance "cover_lru" is same as the name of the covergroup "cover_lru".</text>;
+                failure_id : <text>F6</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>460@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F7 {
+                description : <text>Name of covergroup instance "cover_mesi" is same as the name of the covergroup "cover_mesi".</text>;
+                failure_id : <text>F7</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>461@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F8 {
+                description : <text>Name of covergroup instance "cover_lru" is same as the name of the covergroup "cover_lru".</text>;
+                failure_id : <text>F8</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>462@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F9 {
+                description : <text>Name of covergroup instance "cover_mesi" is same as the name of the covergroup "cover_mesi".</text>;
+                failure_id : <text>F9</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>463@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F10 {
+                description : <text>Name of covergroup instance "cover_lru" is same as the name of the covergroup "cover_lru".</text>;
+                failure_id : <text>F10</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>464@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F11 {
+                description : <text>Name of covergroup instance "cover_mesi" is same as the name of the covergroup "cover_mesi".</text>;
+                failure_id : <text>F11</text>;
+                kind : <text>CGNSIN</text>;
+                reference : <text>465@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncsim</text>;
+        }
+
+        failure F12 {
+                description : <text>This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.</text>;
+                failure_id : <text>F12</text>;
+                kind : <text>ENUMERR</text>;
+                module : <text>../uvm/cache_scoreboard_c.sv,307|36</text>;
+                reference : <text>9@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncvlog</text>;
+        }
+
+        failure F13 {
+                description : <text>This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.</text>;
+                failure_id : <text>F13</text>;
+                kind : <text>ENUMERR</text>;
+                module : <text>../uvm/cache_scoreboard_c.sv,307|36</text>;
+                reference : <text>56@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        failure F14 {
+                description : <text>Block and Expression coverage types are not supported inside SystemVerilog classes. Use CCF command to enable type-based block coverage. There may also be other such classes in the design.</text>;
+                failure_id : <text>F14</text>;
+                kind : <text>COVUCC</text>;
+                module : <text>../uvm/sbus_packet_c.sv,12|18</text>;
+                reference : <text>60@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        failure F15 {
+                description : <text>Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory, and array of enum. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.</text>;
+                failure_id : <text>F15</text>;
+                kind : <text>COVUTA</text>;
+                module : <text>../design/common/access_blk_proc_md.sv,31|12</text>;
+                reference : <text>66@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        failure F16 {
+                description : <text>Toggle coverage for bit, logic, reg, wire, and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage on for these types specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.</text>;
+                failure_id : <text>F16</text>;
+                kind : <text>COVMDD</text>;
+                module : <text>../design/common/access_blk_proc_md.sv,32|37</text>;
+                reference : <text>69@/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+                severity : <text>warning</text>;
+                tool : <text>ncelab</text>;
+        }
+
+        filter "vm_scan" {
+                filter_files : <text>/softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/ius.flt /softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/shell.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+        }
+
+        filter "vm_scan" {
+                filter_files : <text>/softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/ovm_sv_lib.flt /softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/uvm.flt /softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/vm.flt</text>;
+                filter_id : <text>vm_scan</text>;
+                log_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test/run_32/local_log.log</text>;
+        }
+}
+extend 32 {
+	job_status : <text>finished</text>;
+	end_time : <text>1588056472</text>;
+}
+

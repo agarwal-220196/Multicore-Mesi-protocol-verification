@@ -1,0 +1,7 @@
+extend 40 {
+	job_status : <text>running</text>;
+	host_name : <text>hera3.ece.tamu.edu</text>;
+	start_time : <text>1588053513</text>;
+	log_file : <text>/home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_00_46_14_1722/chain_0/all_test/run_40/local_log.log</text>;
+}
+

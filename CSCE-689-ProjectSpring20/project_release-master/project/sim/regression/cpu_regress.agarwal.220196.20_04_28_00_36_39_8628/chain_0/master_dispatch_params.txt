@@ -1,0 +1,2 @@
+execute_locally
+/softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/dpl/config/Local_config.xml

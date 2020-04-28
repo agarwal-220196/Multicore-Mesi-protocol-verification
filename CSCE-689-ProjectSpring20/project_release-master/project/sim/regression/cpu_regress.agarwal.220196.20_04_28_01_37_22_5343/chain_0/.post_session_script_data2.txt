@@ -1,0 +1,5 @@
+session_output cpu_regress.agarwal.220196.20_04_28_01_37_22_5343 {
+	session_status : <text>post_session_script_done</text>;
+	session_end_time : <text>1588058369</text>;
+}
+
