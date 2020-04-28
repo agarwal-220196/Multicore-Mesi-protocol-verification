@@ -94,4 +94,12 @@
 
 
 
+//---ASHLESHA
+`include "lru4.sv"
+`include "lru_otherproc_shared.sv"
+`include "lru_otherproc_modified.sv"
+`include "read_write_randomized.sv"
+`include "write_miss_dcache_randomized.sv"
+`include "write_miss_icache_randomized.sv"
+
 
