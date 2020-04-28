@@ -82,7 +82,7 @@ interface cpu_lv1_interface(input clk);
 	assert_data_in_bus_following_rd_wr: assert property (data_in_bus_following_rd_wr)
 	else
 	`uvm_error("cpu_lv1_interface",$sformatf("Assertion 5 assert_data_in_bus_following_rd_wr failed: data_in_bus_cpu_lv1 asserted without cpu_rd or cpu_wr signal"))
-	
+/*	
 	//ASSERTION 6: if a signal occurs, then following sequence should also take place
 	
 	property checking_sequence_type_1;
@@ -92,8 +92,8 @@ interface cpu_lv1_interface(input clk);
 	assert_checking_data_in_cpu_rd_seq: assert property (checking_sequence_type_1)
 	else
         `uvm_error("cpu_lv1_interface",$sformatf("Assertion 6 checking_sequence_type_1 Failed: data_in_bus_cpu_lv1 and cpu_rd sequence"))
-
-
+*/
+/*
 //ASSERTION 7: cpu_wr_done should follow cpu_wr
 
 	property checking_sequence_type_3;
@@ -103,7 +103,7 @@ interface cpu_lv1_interface(input clk);
 	assert_chceking_cpu_wr_follow_cpu_wr_done: assert property(checking_sequence_type_3)
 	else	
 		`uvm_error("cpu_lv1_interface",$sformatf("Assertion 7 checking_sequence_type_3 Failed: cpu_wr and cpu_wr_done don't follow each other "))
-		
+*/		
 //ASSERTION 8: checking validity of address while reading.
 	property address_validity_cpu_rd;
 		@(posedge clk)

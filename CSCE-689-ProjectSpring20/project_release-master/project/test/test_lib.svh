@@ -30,7 +30,7 @@
 `include "R0_W1_W0_same_addr_dcache.sv"
 `include "W0_W1_R2_same_addr_dcache.sv"
 `include "W0_R0_W0_samedata_same_addr_dcache.sv"
-
+`include "LRU_check_test_write_to_mem.sv"
 
 
 

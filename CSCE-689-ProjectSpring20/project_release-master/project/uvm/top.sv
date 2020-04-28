@@ -117,38 +117,38 @@ module top;
 		
 		//index proc 
 		
-		assign inst_cpu_mesi_lru_if[0].index_proc	= (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
-		assign inst_cpu_mesi_lru_if[1].index_proc   = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
-		assign inst_cpu_mesi_lru_if[2].index_proc   = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
-		assign inst_cpu_mesi_lru_if[3].index_proc   = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
+		assign inst_cpu_mesi_lru_if[0].index_proc	= (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
+		assign inst_cpu_mesi_lru_if[1].index_proc   = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
+		assign inst_cpu_mesi_lru_if[2].index_proc   = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
+		assign inst_cpu_mesi_lru_if[3].index_proc   = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_LRU_BLOCK.index_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_LRU_BLOCK.index_proc);
 		
 		//tag proc 
 		
-		assign inst_cpu_mesi_lru_if[0].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
-		assign inst_cpu_mesi_lru_if[1].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
-		assign inst_cpu_mesi_lru_if[2].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
-		assign inst_cpu_mesi_lru_if[3].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
+		assign inst_cpu_mesi_lru_if[0].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
+		assign inst_cpu_mesi_lru_if[1].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
+		assign inst_cpu_mesi_lru_if[2].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
+		assign inst_cpu_mesi_lru_if[3].tag_proc     = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.`INST_CACHE_CONTR_DL.`INST_ADDR_SEGR.tag_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.`INST_CACHE_CONTR_IL.`INST_ADDR_SEGR.tag_proc);
 		
 		//block accessed main 
 		
-		assign inst_cpu_mesi_lru_if[0].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.blk_accessed_main)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.blk_accessed_main);
-		assign inst_cpu_mesi_lru_if[1].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.blk_accessed_main)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.blk_accessed_main);
-		assign inst_cpu_mesi_lru_if[2].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.blk_accessed_main)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.blk_accessed_main);
-		assign inst_cpu_mesi_lru_if[3].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.blk_accessed_main)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.blk_accessed_main);
+		assign inst_cpu_mesi_lru_if[0].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.blk_accessed_main)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.blk_accessed_main);
+		assign inst_cpu_mesi_lru_if[1].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.blk_accessed_main)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.blk_accessed_main);
+		assign inst_cpu_mesi_lru_if[2].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.blk_accessed_main)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.blk_accessed_main);
+		assign inst_cpu_mesi_lru_if[3].blk_accessed_main  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.blk_accessed_main)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.blk_accessed_main);
 
 
 		//LRU replacement proc 
-		assign inst_cpu_mesi_lru_if[0].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.lru_replacement_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.lru_replacement_proc);
-		assign inst_cpu_mesi_lru_if[1].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.lru_replacement_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.lru_replacement_proc);
-		assign inst_cpu_mesi_lru_if[2].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.lru_replacement_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.lru_replacement_proc);
-		assign inst_cpu_mesi_lru_if[3].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.lru_replacement_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.lru_replacement_proc);
+		assign inst_cpu_mesi_lru_if[0].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.lru_replacement_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.lru_replacement_proc);
+		assign inst_cpu_mesi_lru_if[1].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.lru_replacement_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.lru_replacement_proc);
+		assign inst_cpu_mesi_lru_if[2].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.lru_replacement_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.lru_replacement_proc);
+		assign inst_cpu_mesi_lru_if[3].lru_replacement_proc  = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.lru_replacement_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.lru_replacement_proc);
 		
 		//block hit proc 
 		
-		assign inst_cpu_mesi_lru_if[0].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
-		assign inst_cpu_mesi_lru_if[1].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
-		assign inst_cpu_mesi_lru_if[2].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
-		assign inst_cpu_mesi_lru_if[3].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)|| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
+		assign inst_cpu_mesi_lru_if[0].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE0.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
+		assign inst_cpu_mesi_lru_if[1].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE1.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
+		assign inst_cpu_mesi_lru_if[2].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE2.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
+		assign inst_cpu_mesi_lru_if[3].blk_hit_proc    = (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_DL.`INST_CACHE_BLOCK_DL.blk_hit_proc)| (inst_cache_top.`INST_TOP_CORE.`INST_UNI_CORE3.`INST_CACHE_WRAP_IL.`INST_CACHE_BLOCK_IL.blk_hit_proc);
 
 		
     // instantiate memory golden model

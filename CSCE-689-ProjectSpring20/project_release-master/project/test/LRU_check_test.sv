@@ -52,7 +52,37 @@ class LRU_check_test_seq extends base_vseq;
         `uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_0000;})
 		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_0000;})
 
-        
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC;   address == 32'h4321_1111; data==32'h1603_1996; })
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h4444_1111;data==32'h1111_1111;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_1111; data==32'h0501_1959;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_1111;data==32'h2222_2222;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7777_1111;})
+        //`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7000_1111;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_1111;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_1111;})
+		
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC;   address == 32'h4321_2222; data==32'h1603_1996; })
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h4444_2222;data==32'h1111_1111;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_2222; data==32'h0501_1959;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_2222;data==32'h2222_2222;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7777_2222;})
+        //`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7000_2222;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_2222;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[2], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_2222;})
+			
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC;   address == 32'h4321_3333; data==32'h1603_1996; })
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h4444_3333;data==32'h1111_1111;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_3333; data==32'h0501_1959;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == WRITE_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_3333;data==32'h2222_2222;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7777_3333;})
+        //`uvm_do_on_with(trans, p_sequencer.cpu_seqr[0], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h4321_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h7000_3333;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h5555_3333;})
+		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[3], { request_type == READ_REQ; access_cache_type == DCACHE_ACC; address == 32'h6666_3333;})
+			
+
    endtask
 
 endclass : LRU_check_test_seq
