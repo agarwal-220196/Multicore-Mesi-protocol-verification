@@ -1,2 +1,0 @@
-#!/bin/sh
-/softwares/Linux/cadence/INCISIVE152/tools/vmgr/runner/bin/vm_append_to_vsof.pl -vsof /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_10_43_35_4103/cpu_regress.vsof -runs_data_dir /softwares/internal/vmanager/profile/chunks/projects/vmgr -session_name cpu_regress.agarwal.220196.20_04_28_10_43_35_4103 -vsof_chunk $* -stage other -noserver 

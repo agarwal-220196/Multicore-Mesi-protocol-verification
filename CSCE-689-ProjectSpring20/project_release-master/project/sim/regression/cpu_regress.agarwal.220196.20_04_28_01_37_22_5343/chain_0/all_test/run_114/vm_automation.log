@@ -1,6 +1,0 @@
-Apr 28, 2020 2:13:36 AM java_util_logging_Logger$info$1 call
-INFO: Starting automation script
-Apr 28, 2020 2:13:37 AM java_util_logging_Logger$info$1 call
-INFO: ### Automation connection details: hera.ece.tamu.edu:8080:vmgr:session-id=164131 , wait:false
-Apr 28, 2020 2:13:37 AM java_util_logging_Logger$info$1 call
-INFO: nothing todo

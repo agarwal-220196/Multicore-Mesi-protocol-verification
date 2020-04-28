@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ $# -ne 0 ];then
- /bin/echo 'Error: No arguments are supported.'
- exit 1;
-fi
-
-`cds_root vmanager`/vmanager/bin/rr_runme.sh  --chain_dir /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0 --group_dir /home/grads/a/agarwal.220196/CSCE689_labs/final_project/CSCE-689-ProjectSpring20/project_release-master/project/sim/regression/cpu_regress.agarwal.220196.20_04_28_01_37_22_5343/chain_0/all_test --run_id 131 --seed random --e_seed random --sv_seed random --sve_name  
-

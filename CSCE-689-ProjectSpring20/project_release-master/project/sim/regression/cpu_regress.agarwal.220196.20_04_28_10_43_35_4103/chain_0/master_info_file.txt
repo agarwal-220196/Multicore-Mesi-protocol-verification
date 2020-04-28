@@ -1,3 +1,0 @@
-cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress___all_test___read_miss_icache__run_1 RUNNING,36032,0
-cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress__post_session EMPTY,N/A,0
-cpu_regress.agarwal.220196.20_04_28_10_43_35_4103_cpu_regress__pre_session COMPLETED,34394,0
