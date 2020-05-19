@@ -71,6 +71,7 @@
 
 `include "r0_w1_r2_same_addr_dcache.sv"
 `include "r0_w1_r2_same_addr_dcache_random.sv"
+`include "w0_r1_w2_same_addr_dcache.sv"
 
 //=== SANKET 
 
@@ -96,6 +97,7 @@
 
 //---ASHLESHA
 `include "lru4.sv"
+`include "lru1.sv"
 `include "lru_otherproc_shared.sv"
 `include "lru_otherproc_modified.sv"
 `include "read_write_randomized.sv"

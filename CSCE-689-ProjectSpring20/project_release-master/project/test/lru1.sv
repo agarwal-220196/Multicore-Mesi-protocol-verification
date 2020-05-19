@@ -4,7 +4,8 @@
 // Description: Test for read-miss to D-cache
 // Designers: Venky & Suru
 //=====================================================================
-//-----------------LRU -LINE 1 REPLACEMENT---------------------------//
+//----------------------LRU - LINE4 REPLACEMENT----------------------//
+
 class lru1 extends base_test;
 
     //component macro
@@ -33,17 +34,25 @@ endclass : lru1
 class lru1_seq extends base_vseq;
     //object macro
     `uvm_object_utils(lru1_seq)
+
     cpu_transaction_c trans;
-//constructor
+
+    //constructor
     function new (string name="lru1_seq");
         super.new(name);
     endfunction : new
+
     virtual task body();
-		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[mp], { request_type == WRITE_REQ; address == 32'h4000_0000;})
-      		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[mp], { request_type == WRITE_REQ; address == 32'h4001_0000;})
-        	`uvm_do_on_with(trans, p_sequencer.cpu_seqr[mp], { request_type == WRITE_REQ; address == 32'h4010_0000;})
-		`uvm_do_on_with(trans, p_sequencer.cpu_seqr[mp], { request_type == WRITE_REQ; address == 32'h4011_0000;})
-        	`uvm_do_on_with(trans, p_sequencer.cpu_seqr[mp], { request_type == READ_REQ; address == 32'h4100_0000;})
+	
+	`uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; address == 32'h4000_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; address == 32'h4001_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; address == 32'h4010_0000;})
+	`uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == WRITE_REQ; address == 32'h4011_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; address == 32'h4100_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; address == 32'h4101_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; address == 32'h4110_0000;})
+        `uvm_do_on_with(trans, p_sequencer.cpu_seqr[1], { request_type == READ_REQ; address == 32'h4111_0000;})
+	
    endtask
 
 endclass : lru1_seq

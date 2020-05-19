@@ -98,7 +98,12 @@ cov_snoop_upd: coverpoint updated_mesi_snoop iff (bus_rd || bus_rdx || invalidat
 	cov_tag_proc : coverpoint tag_proc{
 		option.auto_bin_max=10;
 		}
-	cov_blk_accessed_main: coverpoint blk_accessed_main;
+
+	cov_blk_accessed_main: coverpoint blk_accessed_main
+	{
+		illegal_bins ignore = {0,1};
+		}
+
 	cov_lru_replacement_proc: coverpoint lru_replacement_proc;
 endgroup
 
